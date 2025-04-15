@@ -1,0 +1,87 @@
+/* Layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: #EEF1ED;
+    color: #102228;
+  }
+  
+  main {
+    flex: 1;
+  }
+
+  /* Logo Header */
+  .logo-img {
+    height: 80px;
+    width: auto;
+  }
+  
+  .logo-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #102228;
+  }
+  
+  /* Typography */
+  h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #102228;
+  }
+  
+  h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #102228;
+  }
+  
+  h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #102228;
+  }
+  
+  p, span, a, li {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #102228;
+  }
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #FFFFFF !important;
+    font-family: Quicksand, sans-serif;
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #D1DFFF !important;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #D1DFFF !important;
+  }
+
+  #barChart {
+    max-width: 60%;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #102228;
+    color: #FFFFFF;
+  }
+  
