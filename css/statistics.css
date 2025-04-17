@@ -1,87 +1,222 @@
 /* Layout */
 html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Inter', sans-serif;
-    background-color: #EEF1ED;
-    color: #102228;
-  }
-  
-  main {
-    flex: 1;
-  }
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  background-color: #EEF1ED;
+  color: #102228;
+}
 
-  /* Logo Header */
-  .logo-img {
-    height: 80px;
-    width: auto;
-  }
-  
-  .logo-text {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 42px;
-    font-weight: bold;
-    color: #102228;
-  }
-  
-  /* Typography */
-  h1 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #102228;
-  }
-  
-  h2 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    color: #102228;
-  }
-  
-  h3 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #102228;
-  }
-  
-  p, span, a, li {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-  }
-  
-  /* Navbar */
-  .navbar {
-    background-color: #102228;
-  }
-  
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: #FFFFFF !important;
-    font-family: Quicksand, sans-serif;
-  }
-  
-  .navbar-nav .nav-link.active {
-    color: #D1DFFF !important;
-    font-weight: bold;
-    font-style: italic;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #D1DFFF !important;
-  }
+main {
+  flex: 1;
+}
 
-  #barChart {
-    max-width: 60%;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #102228;
-    color: #FFFFFF;
-  }
-  
+/* Logo Header */
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: #102228;
+}
+
+/* Typography */
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #102228;
+}
+
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #102228;
+}
+
+h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #102228;
+}
+
+p, span, a, li {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #102228;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #FFFFFF !important;
+  font-family: Quicksand, sans-serif;
+}
+
+.navbar-nav .nav-link.active {
+  color: #D1DFFF !important;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #D1DFFF !important;
+}
+
+#barChart {
+  max-width: 60%;
+}
+
+.bar {
+  height: 100%;
+}
+
+.day-block {
+  margin-bottom: 30px;
+}
+
+.bar-container {
+  display: flex;
+  max-width: 60%;
+  margin: 0 auto;
+  height: 12px;
+  overflow: hidden;
+}
+
+
+.study {
+  background: #0ea964;
+}
+
+.study-left {
+  background: #a2eac4;
+}
+
+.warmup {
+  background: #2062e2;
+}
+
+.warmup-left {
+  background: #bbd9ff;
+}
+
+.rest {
+  background: #ff5100;
+}
+
+.rest-left {
+  background: #ffd9b0;
+}
+
+.week-bar-progress-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.title-week-progress {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2em;
+  color: #102228;
+  margin-bottom: 10px;
+}
+
+.bar-week-progress {
+  height: 10px;
+  background-color: #918BFF;
+}
+
+.bar-week-progress-left {
+  height: 10px;
+  background-color: #d5d4fd;
+}
+
+.total-time {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.info-block {
+  margin-left: 20%;
+}
+
+.label-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+.info-block-labels {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+}
+
+.weekly-progress {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.weekly-progress-days {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 120px;
+}
+
+.weekly-progress-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65px;
+}
+
+.weekly-progress-bar-wrapper {
+  background: #e0e0e0;
+  border-radius: 10px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.weekly-progress-bar {
+  background-color: #918BFF;
+  width: 100%;
+  border-radius: 10px;
+  transition: height 0.3s ease;
+}
+
+.day-label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #888;
+}
+
+.link {
+  color: #6e67fe;
+  text-decoration: none;
+  font-style: italic;
+  margin-left: 7px;
+}
+
+/* Footer */
+footer {
+  background-color: #102228;
+  color: #FFFFFF;
+}

@@ -1,0 +1,146 @@
+/* Layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: #EEF1ED;
+    color: #102228;
+  }
+  
+  main {
+    flex: 1;
+  }
+
+  /* Logo Header */
+  .logo-img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .logo-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #102228;
+  }
+  
+  /* Typography */
+  h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #102228;
+  }
+  
+  h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #102228;
+  }
+  
+  h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #102228;
+  }
+  
+  p, span, a, li {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #102228;
+  }
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #FFFFFF !important;
+    font-family: Quicksand, sans-serif;
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #D1DFFF !important;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #D1DFFF !important;
+  }
+
+  .weekly-progress {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .weekly-progress-days {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 120px;
+  }
+  
+  .weekly-progress-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65px;
+  }
+  
+  .weekly-progress-bar-wrapper {
+    background: #e0e0e0;
+    border-radius: 10px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .weekly-progress-bar {
+    background-color: #918BFF;
+    width: 100%;
+    border-radius: 10px;
+    transition: height 0.3s ease;
+  }
+  
+  .day-label {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .week-bar-progress-wrapper {
+    width: 60%;
+    margin: 0 auto; 
+    display: flex; 
+  }
+  
+  .bar-week-progress {
+    height: 10px;
+    background-color: #918BFF;
+  }
+  
+  .bar-week-progress-left {
+    height: 10px;
+    background-color: #d5d4fd;
+  }
+
+  .label-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #102228;
+    color: #FFFFFF;
+  }

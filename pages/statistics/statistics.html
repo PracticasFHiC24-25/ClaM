@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClaM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../css/statistics.css">
+
+  <!-- Script for the chart display -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <!-- Header / Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo_clam.png" alt="Logo" class="logo-img me-1">
+            ClaM
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Plannings</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Study</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pages/statistics.html">Statistics</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <div id="app">
+        <!-- Statistics from the last 7 days -->
+        <h1 class="text-center mb-4">Temps d'estudi dels últims 7 dies</h1>
+        <div class="mb-5 d-flex justify-content-center">
+          <canvas id="barChart" width="400" height="100"></canvas>
+        </div>
+        <hr class="mb-4" style="width: 60%; margin-left: 20%;">
+        <!-- Recent study sessions-->
+        <h1 class="text-center mb-4">Distribució de sessions recents<a class="link" href="studyHistory.html"> (Veure historial d'estudi) </a></h1>
+        <div v-for="day in dataChart2" class="day-block">
+          <!-- Information block with day and amount of time dedicated-->
+          <div class="info-block mb-2">
+            <span class="day">{{ day.label }}</span>
+            <span class="total-time">({{ day.total }})</span>
+          </div>
+          <!-- Bars with the time dedicated to each practice aspect (stdudy, warmup, rest) -->
+          <div class="bar-container">
+            <div class="bar study" :style="{ width: day.study }"></div>
+            <div class="bar study-left" :style="{ width: day.studyLeft }"></div>
+            <div :style="{ width: '10%' }"></div>
+            <div class="bar warmup" :style="{ width: day.warmup }"></div>
+            <div class="bar warmup-left" :style="{ width: day.warmupLeft }"></div>
+            <div :style="{ width: '10%' }"></div>
+            <div class="bar rest" :style="{ width: day.rest }"></div>
+            <div class="bar rest-left" :style="{ width: day.restLeft }"></div>
+          </div>
+          <!-- Information block with the labels for each practice aspect (stdudy, warmup, rest) -->
+          <div class="info-block-labels mb-2">
+            <span class="label-text">Estudi</span>
+            <span class="label-text">Escalfament</span>
+            <span class="label-text">Descans</span>
+          </div>
+        </div>
+        <hr class="mb-4" style="width: 60%; margin-left: 20%;">
+        <!-- Statistics about the weekly goals -->
+        <h1 class="text-center mb-2">Progrés dels objectius setmanals <a class="link" href="goalsFulfillment.html"> (Veure totes les setmanes) </a></h1>
+        <div class="weekly-progress">
+          <div class="weekly-progress-days mb-4">
+            <div v-for="day in weekProgress" :key="day.label" class="weekly-progress-day">
+              <div class="weekly-progress-bar-wrapper">
+                <div class="weekly-progress-bar" :style="{ height: day.percent + '%' }"></div>
+              </div>
+              <span class="day-label">{{ day.label }}</span>
+            </div>
+          </div>
+          <!-- Bar with the weekly progress -->
+          <span>Progrés setmanal actual</span> <span class="label-text">({{weekProgressGoals.progress}}%)</span>
+          <div class="week-bar-progress-wrapper mt-1">
+            <div class="bar-week-progress" :style="{ width: weekProgressGoals.progress + '%' }"></div>
+            <div class="bar-week-progress-left" :style="{ width: weekProgressGoals.left + '%' }"></div>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <div class="container">
+      <small>&copy; 2025 ClaM. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../js/statistics.js"></script>
+</body>
+</html>
