@@ -1,6 +1,6 @@
 # ClaM
 
-# Structure of the proyect
+# Structure of the project
 
 It is divided in 4 main folders:
 
