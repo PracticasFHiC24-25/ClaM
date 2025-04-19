@@ -1,3 +1,4 @@
+/* Typography and base styling */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #EEF1ED;
@@ -38,7 +39,7 @@ p, span, a, li {
     line-height: 22px;
 }
 
-/* Logo Header */
+  /* Logo Header */
 .logo-img {
     height: 40px;
     width: auto;
@@ -72,33 +73,44 @@ p, span, a, li {
     color: #D1DFFF !important;
 }
 
-.config-card {
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin: 1rem;
+.welcome-title {
+    text-transform: capitalize;
+    color: #72C5FF;
 }
 
-  .form-label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
+.subtitle {
+    color: #468FAF 
+}
 
-  .form-control {
-    border-radius: 4px;
-    border: 1px solid #C8CDD0;
-    padding: 0.5rem;
-    color: #75828A;
-  }
+/* Card and button styles */
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
+    border-radius: 0.5rem; /* Slightly rounded corners */
+}
 
-  .form-control:focus {
-    border-color: #75828A;
-    box-shadow: none;
-    outline: 0;
-  }
+.progress-bar {
+    background-color: #72C5FF;
+}
 
-  .btn-primary {
+.badge {
+    color: #468FAF;
+    background-color: rgba(114, 197, 255, 0.2);
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+}
+
+.stat-box {
+    background-color: rgba(209, 223, 255, 0.3);
+    border-radius: 0.375rem; /* Slightly rounded corners */
+    margin-bottom: 1rem; /* Add some space below stat boxes on smaller screens */
+}
+
+.stat-box p.h4 {
+    color: #468FAF;
+    font-weight: 700;
+}
+
+.btn-primary {
     background-color: #FFFFFF;
     border-color: #082691;
     color: #082691;
@@ -110,30 +122,34 @@ p, span, a, li {
     color: #FFFFFF;
   }
 
-.btn-secondary {
-    background-color: #FFFFFF;
-    border-color: #C8CDD0;
-    color: #102228;
-    padding: 0.5rem 1rem;
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-.btn-secondary:hover {
-    color: #102228;
-    background-color: #F5F7FA;
+.list-group-item:first-child {
+    border-top: none;
 }
 
-/* Password toggle button */
-.password-toggle {
-    right: 10px;
-    top: 55%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
+.list-group-item:last-child {
+    border-bottom: none;
 }
 
-/* validation error messages */
-.error-text {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.875em;
+.list-group-item-action:hover, .list-group-item-action:focus {
+    background-color: #f8f9fa; /* Subtle hover effect */
+}
+
+.list-group-item .fw-bold {
+    color: #343a40; /* Darker text for titles */
+}
+
+@media (min-width: 768px) {
+    .stat-box {
+        margin-bottom: 0; /* Remove bottom margin on medium screens and up */
+    }
+    .height-100 {
+        height: 100%; /* Full height on larger screens */
+    }
 }
