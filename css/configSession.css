@@ -1,3 +1,19 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 .session-title {
     text-align: center;
     margin-bottom: 30px;
@@ -106,6 +122,7 @@
 footer {
     background-color: #102228;
     color: #FFFFFF;
+    flex-shrink: 0;
 }
 
 /* Logo Header */

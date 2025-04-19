@@ -1,3 +1,19 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 .timer-circle {
     width: 150px;
     height: 150px;
@@ -12,6 +28,28 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 20px auto;
+}
+
+.fixed-timer-container {
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-timer {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
 }
 
 .accordion-button {
@@ -48,6 +86,31 @@
     height: auto;
 }
 
+.progress-bar {
+    color: black;
+}
+
+/* Phase-specific background styles */
+.warm-up-background {
+    background-color: #fff3e0;
+    transition: background-color 1s ease;
+}
+
+.practice-background {
+    background-color: #1956ff77;
+    transition: background-color 1s ease;
+}
+
+.rest-background {
+    background-color: #347a3a60;
+    transition: background-color 1s ease;
+}
+
+.end-background {
+    background-color: #f3e5f5;
+    transition: background-color 1s ease;
+}
+
 /* Navbar */
 .navbar {
     background-color: #102228;
@@ -77,6 +140,7 @@
 footer {
     background-color: #102228;
     color: #FFFFFF;
+    flex-shrink: 0;
 }
 
 /* Logo Header */

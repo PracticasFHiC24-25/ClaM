@@ -39,7 +39,8 @@
                     <li class="nav-item"><a class="nav-link" href="#">Plannings</a></li>
                     <li class="nav-item"><a class="nav-link active"
                             href="/pages/studySession/configSession.html">Study</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/statistics.html">Statistics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
                 </ul>
             </div>
@@ -48,8 +49,14 @@
 
     <main class="container my-5">
         <div id="app">
-            <h1 class="text-center">Escalfament</h1>
+            <h1 class="text-center">{{ phaseTitle }}</h1>
 
+            <!-- Fixed timer that stays visible when scrolling -->
+            <div class="fixed-timer-container" v-if="!isConfigPage">
+                <div class="fixed-timer">
+                    {{ formatTime(currentTime) }}
+                </div>
+            </div>
 
             <div class="position-relative my-5">
                 <div class="d-flex justify-content-center align-items-end">
@@ -63,21 +70,39 @@
                 </div>
             </div>
 
-            <div class="accordion" id="accordionEscalfament">
-                <div class="accordion-item" v-for="(exercise, index) in exercises" :key="index">
+            <!-- Only show accordion when appropriate -->
+            <div v-if="showAccordion" class="accordion" :id="accordionId">
+                <div class="accordion-item" v-for="(exercise, index) in currentExercises" :key="index">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             :data-bs-target="'#collapse' + index" aria-expanded="false"
                             :aria-controls="'collapse' + index">
-                            Partitura escalfament {{ index + 1 }}
+                            {{ exercise.title }}
                         </button>
                     </h2>
                     <div :id="'collapse' + index" class="accordion-collapse collapse"
-                        data-bs-parent="#accordionEscalfament">
+                        :data-bs-parent="'#' + accordionId">
                         <div class="accordion-body text-center">
-                            <img :src="exercise.image" class="accordion-image" :alt="exercise.image">
+                            <img :src="exercise.image" class="accordion-image" :alt="exercise.title">
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Show phase progression indicator -->
+            <div class="progress mt-5">
+                <div class="progress-bar" role="progressbar" :class="{
+                        'bg-warning': currentPhase === 'warm-up',
+                        'bg-primary': currentPhase === 'practice-1' || currentPhase === 'practice-2',
+                        'bg-success': currentPhase === 'rest',
+                        'bg-info': currentPhase === 'end'
+                    }" :style="{
+                        width: currentPhase === 'warm-up' ? '20%' :
+                               currentPhase === 'practice-1' ? '40%' :
+                               currentPhase === 'rest' ? '60%' :
+                               currentPhase === 'practice-2' ? '80%' : '100%'
+                    }">
+                    {{ phaseTitle }}
                 </div>
             </div>
         </div>
