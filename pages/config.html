@@ -8,6 +8,8 @@
     <link rel="icon" href="/images/favicon.ico" />
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Quicksand:wght@700&display=swap" rel="stylesheet">
@@ -47,20 +49,58 @@
         </div>
     </nav>
     <!-- Main content-->
-    <div class="container mt-5">
-        <h1 class="text-center">Configuració de la sessió d'estudi</h1>
-        <div id="app" class="mt-4">
-            <form @submit.prevent="submitForm">
-                <div class="mb-3">
-                    <label for="studyTime" class="form-label">Temps d'estudi (minuts)</label>
-                    <input type="number" v-model="studyTime" class="form-control" id="studyTime" required>
+    <div class="container mt-5" id="config-form"> <!-- Added id for Vue -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="config-card">
+                    <div class="text-center mb-4">
+                        <h2>Configuració</h2>
+                    </div>
+
+                    <!-- General Error Message -->
+                    <div v-if="errors.general" class="alert alert-danger mb-3">{{ errors.general }}</div>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nom d'usuari</label>
+                        <input type="text" class="form-control" id="username" placeholder="Nom d'usuari"
+                               v-model="username" @blur="validateField('username')">
+                        <small class="text-danger error-text" v-if="errors.username">{{ errors.username }}</small> <!-- Error message -->
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Nou email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Correu electrònic"
+                               v-model="email" @blur="validateField('email')">
+                        <small class="text-danger error-text" v-if="errors.email">{{ errors.email }}</small> <!-- Error message -->
+                    </div>
+
+                    <div class="mb-3 position-relative">
+                        <label for="newPassword" class="form-label">Nova contrasenya</label>
+                        <input :type="showPassword ? 'text' : 'password'" class="form-control" id="newPassword" placeholder="Nova contrasenya"
+                               v-model="newPassword" @blur="validateField('newPassword')">
+                        <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
+                            <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                        </button>
+                        <small class="text-danger error-text" v-if="errors.newPassword">{{ errors.newPassword }}</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="language" class="form-label">Idioma</label>
+                        <select class="form-select" id="language" v-model="language">
+                            <option value="ca">Català</option>
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                   </div>
+
+                    <div class="mt-5">
+                        <button type="button" class="btn btn-primary w-100" @click="submitConfig">Desar canvis</button>
+                    </div>
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-secondary w-100" id="contactButton">Contacte amb nosaltres</button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="breakTime" class="form-label">Temps de descans (minuts)</label>
-                    <input type="number" v-model="breakTime" class="form-control" id="breakTime" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Desar configuració</button>
-            </form>
+            </div>
         </div>
     </div>
 
@@ -75,7 +115,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Scripts -->
-    <script src="/js/config.js"></script>
+    <script src="/js/config.js"></script> <!-- Include the new JS file -->
 </body>
 
 </html>

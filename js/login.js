@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const app = new Vue({
             el: '#auth-forms',
             data: {
-                formType: 'signup', // Default form is signup
+                formType: 'login',
                 showPassword: false,
                 signupData: {
                     firstName: '',
