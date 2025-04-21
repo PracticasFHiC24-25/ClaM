@@ -22,6 +22,13 @@
 
   <!-- Vue.js -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <!-- From pdf to image -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  </script>
+
 </head>
 <body>
 
@@ -44,7 +51,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Plannings</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Study</a></li>
                 <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a></li>
-                <li class="nav-item"><a class="nav-link active" href="#">Resources</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/pages/resources/resources.html">Resources</a></li>
             </ul>
         </div>
     </div>
@@ -53,19 +60,33 @@
   <!-- Main Content -->
   <main class="container my-5">
     <div id="app">
-        <!-- Search -->
-        <div class="search-sheets">
-            <div class="title-search-sheets">
-                <h1 class="text-center mb-4">Library</h1>
+          <!-- Title -->
+          <div class="search-sheets-title">
+            <h1 class="text-center mb-4">Library</h1>
+          </div>
+          <!-- Search -->
+          <div class="search-sheets">
+                <input type="text" @input="search()" class="search-sheets-bar" id="search-bar" placeholder="Search">
+                <button @click="search()" class="button">Search</button>
+                <button onclick="window.location.href='addSheet.html';" class="button">Add Sheet</button>
+              
+            <div class="filter-search">
+                <div class="selection-container">
+                  <button @click="selected('study')" class="selection-button" id="study-button"></button>
+                  <p>Study</p>
+                </div>
+                <div class="selection-container">
+                  <button @click="selected('warmUp')" class="selection-button" id="warm-up-button"></button>
+                  <p>Warm-up</p>
+                </div>
+                <div class="selection-container">
+                  <button @click="selected('')" class="button" id="deselect-button">Deselect</button>
+                </div>
             </div>
-            <div class="mb-5 d-flex justify-content-center">
-                <input type="text" class="form-control" placeholder="Search">
-                <button class="btn btn-primary ms-2">Search</button>
             </div>
         </div>
         <!-- Sheets -->
-        <div class="sheets">
-
+        <div id="sheets">
         </div>
     </div>
   </main>
@@ -78,6 +99,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src=""></script>
+  <script src="/js/library.js"></script>
 </body>
 </html>

@@ -76,36 +76,47 @@ html, body {
   }
 
   /* Main Content */
-  .box-selection {
-    border-radius: 10px;
-    padding: 100px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+  .metronome-box {
+    border: black solid 2px;
+    width: 50%;
+    align-items: center;
+  }
+
+  .metronome-info {
+    display: flex;
     text-align: center;
+    align-items: center;
   }
 
-  .box-title {
-    display: inline-block;
-    background-color: #102228;
-    color: #FFFFFF;
-    padding: 10px;
-    border-radius: 10px;
+  .metronome-info p {
+    margin: 0;
   }
 
-  #library-selection {
-    background: url('../images/library.jpg');
-    background-size: cover;
-  }  
+  #bpm-num {
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 10px;
+    align-self: flex-end;
+    text-align: end;
+  }
 
-  #metronome-selection {
-    background: url('../images/metronome.jpg');
-    background-size: cover;
-  } 
+  #bpm-text {
+    align-self: flex-end;
+    text-align: end;
+  }
+  
+  .button {
+    background-color: #72C6FF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
 
-  #tuner-selection {
-    background: url('../images/tuner.jpg');
-    background-size: cover;
-  } 
+  #start-pause-button {
+    margin-left: auto;
+  }
 
   /* Footer */
   footer {

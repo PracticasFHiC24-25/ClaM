@@ -14,14 +14,6 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="../../css/resources.css">
 
-  <!-- Script for the chart display -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Vue.js -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
 
@@ -44,7 +36,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Plannings</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Study</a></li>
                 <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a></li>
-                <li class="nav-item"><a class="nav-link active" href="#">Resources</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/pages/resources/resources.html">Resources</a></li>
             </ul>
         </div>
     </div>
@@ -54,34 +46,25 @@
   <main class="container my-5">
     <div id="app">
         <!-- Library -->
-        <div class="box-selection" id="library-selection"><a class="nav-link" href="/pages/resources/library.html">
-            <div class="center-content">
+        <a class="nav-link" href="/pages/resources/library.html">
+            <div class="box-selection" id="library-selection">
                 <h1 class="box-title">Library</h1>
             </div>
-            <div class="mb-5 d-flex justify-content-center">
-                <canvas id="barChart" width="400" height="100"></canvas>
-            </div>
-        </div>
+        </a>
 
         <!-- Metronome -->
-        <div class="box-selection" id="metronome-selection"><a class="nav-link" href="/pages/resources/metronome.html">
-            <div class="center-content">
+        <a class="nav-link" href="/pages/resources/metronome.html">
+            <div class="box-selection" id="metronome-selection">
                 <h1 class="box-title">Metronome</h1>
             </div>
-            <div class="mb-5 d-flex justify-content-center">
-                <canvas id="barChart" width="400" height="100"></canvas>
-            </div>
-        </div>
+        </a>
 
         <!-- Tuner -->
-        <div class="box-selection" id="tuner-selection"><a class="nav-link" href="/pages/resources/tuner.html">
-            <div class="center-content">
+        <a class="nav-link" href="/pages/resources/tuner.html">
+            <div class="box-selection" id="tuner-selection">  
                 <h1 class="box-title">Tuner</h1>
             </div>
-            <div class="mb-5 d-flex justify-content-center">
-                <canvas id="barChart" width="400" height="100"></canvas>
-            </div>
-        </div>
+        </a>
     </div>
   </main>
 
@@ -92,7 +75,5 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src=""></script>
 </body>
 </html>

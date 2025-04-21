@@ -76,13 +76,99 @@ html, body {
   }
 
   /* Main Content */
-  .sheets {
+  .search-sheets {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .search-sheets-bar {
+    width: 85%;
+  }
+  
+  .button {
+    background-color: #72C6FF;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .filter-search {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .selection-container {
+    display: flex; 
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .selection-button {
+    background-color: white;
+    border: grey 2px solid;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  #study-button.selected {
+    background: radial-gradient(circle, #72C6FF 60%, white 50%);
+  }
+
+  #warm-up-button.selected {
+    background: radial-gradient(circle, #72C6FF 60%, white 50%);
+  }
+
+  .selection-container p {
+    margin: 0;
+  }
+  
+  #sheets {
+    margin-top: 20px;
+    padding: 10px;
     border-color: black;
     border-width: 2px;
     border-style: solid;
     border-radius: 10px;
     background-color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+
   }
+
+  .pdf-container {
+    /* Each element takes up 25% of the width */
+    flex: 1 1 calc(25%);
+    /* Bounds the width to the 25% */
+    max-width: calc(25%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .pdf-container p {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+
+  .pdf-container canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
   /* Footer */
   footer {
