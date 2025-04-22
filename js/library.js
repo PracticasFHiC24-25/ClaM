@@ -90,18 +90,27 @@ new Vue({
             pdfList.forEach(pdf => {
                 const pdfContainer = document.createElement('div');
                 pdfContainer.classList.add('pdf-container');
+
+                // Change cursor to pointer for better UX
+                pdfContainer.style.cursor = 'pointer';
+
+                // Add an onclick event to the container
+                pdfContainer.onclick = () => {
+                    window.open(pdf[4], '_blank'); // Open the pdf
+                };
         
                 const title = document.createElement('p');
                 title.textContent = pdf[0];
                 const author = document.createElement('p');
                 author.textContent = pdf[1];
         
-                // Añadir título y autor primero
+                // We add the title first
                 pdfContainer.appendChild(title);
         
-                // Renderizar canvas de forma asíncrona
+                // Render the first page of the PDF
                 this.renderFirstPage(pdf[4]).then(canvas => {
                     pdfContainer.appendChild(canvas);
+                    // We add the author after the image
                     pdfContainer.appendChild(author);
                 });
         
