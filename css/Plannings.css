@@ -1,0 +1,80 @@
+/*[v-cloak]{display:none}*/
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: #EEF1ED;
+    color: #102228;
+}
+
+
+main {
+    flex: 1;
+}
+
+/* Logo Header */
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #102228;
+}
+
+
+/* Navbar */
+.navbar {
+    background-color: #102228;
+  }
+  
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #FFFFFF !important;
+    font-family: Quicksand, sans-serif;
+}
+
+.navbar-nav .nav-link.active {
+    color: #D1DFFF !important;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #D1DFFF !important;
+}
+
+
+.row{
+    margin-top: 8rem;
+}
+
+/* Tarjeta‑botón reutilizable */
+.option-card{
+    padding:2.5rem 1rem;
+    background:#fff;
+    border:2px solid #6c757d;
+    border-radius:.75rem;
+    text-decoration:none;           /* quita subrayado del <a> */
+}
+
+.option-card:hover{
+    background:#e9ecef;
+    box-shadow:0 0 .5rem rgba(0,0,0,.15);
+}
+
+.option-img{width:60px;height:60px;object-fit:contain}
+.option-text{font-size:1.25rem;font-weight:600;color:#000}
+
+
+
+footer {
+    background-color: #102228;
+    color: #FFFFFF;
+}
