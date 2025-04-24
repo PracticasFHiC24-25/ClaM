@@ -2,9 +2,11 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #EEF1ED;
-    color: #102228;
+    color: #3e99b8;
     margin: 0;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
  /* Typography */
@@ -143,6 +145,16 @@ p, span, a, li {
 
 .list-group-item .fw-bold {
     color: #343a40; /* Darker text for titles */
+}
+
+.container {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #102228;
+    color: #FFFFFF;
+    flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
