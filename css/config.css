@@ -4,6 +4,8 @@ body {
     color: #102228;
     margin: 0;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
  /* Typography */
@@ -136,4 +138,15 @@ p, span, a, li {
     display: block;
     margin-top: 0.25rem;
     font-size: 0.875em;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+/* Footer */
+footer {
+    background-color: #102228;
+    color: #FFFFFF;
+    flex-shrink: 0;
 }
