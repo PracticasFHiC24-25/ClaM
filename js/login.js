@@ -175,7 +175,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Should add actual form submission logic here, API call and response handling.
                         // In this example, we will just simulate a successful signup.
                         alert('Account creation successful!');
-                        // TODO: Redirect to another page or show success message
+                        // Reset the form after successful signup
+                        this.resetSignupForm();
+                        // redirect to login page
+                        window.location.href = '/pages/index.html';
                     } else {
                         console.log('Signup form is invalid.');
                         // Ensure terms error is shown if it's the only thing missing
@@ -196,8 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Check for superuser credentials
                         if (this.loginData.email === 'master' && this.loginData.password === '123') {
                             console.log('Superuser login successful!');
-                            alert('Superuser login successful!');
-                            // TODO: Redirect or perform superuser action
+                            window.location.href = '/pages/home.html';
                         } else {
                             console.log('Invalid credentials.');
                             this.errors.loginGeneral = 'Invalid email or password.';
