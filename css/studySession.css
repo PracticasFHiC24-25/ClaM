@@ -66,6 +66,12 @@ main {
     border-color: #ffd966;
 }
 
+.btn-next {
+    background-color: #0069cc;
+    border-color: #0069cc;
+    color: white;
+}
+
 .btn-end {
     background-color: #cc0000;
     border-color: #cc0000;
@@ -74,6 +80,11 @@ main {
 
 .btn-pause:hover {
     background-color: rgb(250, 199, 44)
+}
+
+.btn-next:hover {
+    background-color: #02529e;
+    color: white;
 }
 
 .btn-end:hover {

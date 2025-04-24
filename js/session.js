@@ -137,7 +137,7 @@ new Vue({
             // Save current settings before starting the session
             this.saveSettings();
             // Navigate to the session page
-            window.location.href = '/pages/studySession/studySession.html';
+            window.location.href = '/pages/study/studySession.html';
         },
 
         // Session page methods
@@ -211,7 +211,7 @@ new Vue({
             clearInterval(this.timer);
             this.timer = null;
             this.sessionActive = false;
-            window.location.href = '/pages/studySession/configSession.html';
+            window.location.href = '/pages/study/configSession.html';
         },
 
         // Background color update method

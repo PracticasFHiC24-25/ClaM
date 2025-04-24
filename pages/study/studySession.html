@@ -24,7 +24,7 @@
     <!-- Header / Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/pages/home.html">
                 <img src="/images/logo_clam.png" alt="Logo" class="logo-img me-1">
                 ClaM
             </a>
@@ -34,14 +34,12 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Plannings</a></li>
-                    <li class="nav-item"><a class="nav-link active"
-                            href="/pages/studySession/configSession.html">Study</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/config.html">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/Plannings/Plannings.html">Plannings</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/pages/study/configSession.html">Study</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/resources/resources.html">Resources</a></li>
                 </ul>
             </div>
         </div>
@@ -49,7 +47,7 @@
 
     <main class="container my-5">
         <div id="app">
-            <h1 class="text-center">{{ phaseTitle }}</h1>
+            <h1 class="text-center justify-content-center">{{ phaseTitle }}</h1>
 
             <!-- Fixed timer that stays visible when scrolling -->
             <div class="fixed-timer-container" v-if="!isConfigPage">
@@ -58,16 +56,18 @@
                 </div>
             </div>
 
-            <div class="position-relative my-5">
+            <div class="position-relative">
                 <div class="d-flex justify-content-center align-items-end">
-                    <button class="btn btn-pause" @click="togglePause">{{ isPaused ? 'Reprendre' : 'Pausar' }}</button>
-
                     <div class="timer-circle mx-3">
                         {{ formatTime(currentTime) }}
                     </div>
-
-                    <button class="btn btn-end" @click="endSession">Acabar sessió</button>
                 </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-end mb-3 gap-3">
+                <button class="btn btn-next w-50" @click="moveToNextPhase">Següent part</button>
+                <button class="btn btn-pause w-50" @click="togglePause">{{ isPaused ? 'Reprendre' : 'Pausar' }}</button>
+                <button class="btn btn-end w-50" @click="endSession">Acabar sessió</button>
             </div>
 
             <!-- Only show accordion when appropriate -->
