@@ -55,10 +55,10 @@
     <div id="app">
         <!-- Statistics from the last 7 days -->
         <h1 class="text-center mb-4">Temps d'estudi dels últims 7 dies</h1>
-        <div class="mb-5 d-flex justify-content-center">
-          <canvas id="barChart" width="400" height="100"></canvas>
+        <div class="mb-3 d-flex justify-content-center">
+          <canvas id="barChart"></canvas>
         </div>
-        <hr class="mb-4" style="width: 60%; margin-left: 20%;">
+        <hr class="mb-4" style="width: 80%; margin-left: 10%;">
         <!-- Recent study sessions-->
         <h1 class="text-center mb-4">Distribució de sessions recents<a class="link" href="studyHistory.html"> (Veure historial d'estudi) </a></h1>
         <div v-for="day in dataChart2" class="day-block">
@@ -85,7 +85,7 @@
             <span class="label-text">Descans</span>
           </div>
         </div>
-        <hr class="mb-4" style="width: 60%; margin-left: 20%;">
+        <hr class="mb-4" style="width: 80%; margin-left: 10%;">
         <!-- Statistics about the weekly goals -->
         <h1 class="text-center mb-2">Progrés dels objectius setmanals <a class="link" href="goalsFulfillment.html"> (Veure totes les setmanes) </a></h1>
         <div class="weekly-progress">

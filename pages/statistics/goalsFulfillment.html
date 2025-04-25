@@ -51,7 +51,7 @@
     <div id="app">
         <!-- Week data from previous weeks -->
         <h1 class="text-center mb-5">Compliment d'objectius</h1>
-        <hr class="mb-4" style="width: 60%; margin-left: 20%;">
+        <hr class="mb-4" style="width: 80%; margin-left: 10%;">
         <div v-for="(week, index) in weekProgress" :key="index" class="week-progress-chart">
             <h2 class="text-center" style="margin-top: 25px;">Setmana {{weekProgress.length - index}}</h2>
             <!-- Weekly Progress Chart -->
@@ -66,12 +66,12 @@
               </div>
             </div>
             <!-- Weekly Goals Progress -->
-            <span style="margin-left: 20%;">Progrés d'objectius setmanals</span> <span class="label-text">({{weekProgressGoals[index]}}%)</span>
+            <span style="margin-left: 10%;">Progrés d'objectius setmanals</span> <span class="label-text">({{weekProgressGoals[index]}}%)</span>
             <div class="week-bar-progress-wrapper mt-1">
               <div class="bar-week-progress" :style="{ width: weekProgressGoals[index] + '%' }"></div>
               <div class="bar-week-progress-left" :style="{ width: (100 - weekProgressGoals[index]) + '%' }"></div>
             </div>
-            <hr style="width: 60%; margin-left: 20%; margin-top: 30px;">
+            <hr style="width: 80%; margin-left: 10%; margin-top: 30px;">
         </div>
     </div>
   </main>
