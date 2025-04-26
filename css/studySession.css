@@ -63,18 +63,18 @@ main {
 
 .btn-pause {
     background-color: #ffd966;
-    border-color: #ffd966;
+    border-color: black;
 }
 
 .btn-next {
-    background-color: #0069cc;
-    border-color: #0069cc;
+    background-color: #468FAF;
+    border-color: black;
     color: white;
 }
 
 .btn-end {
     background-color: #cc0000;
-    border-color: #cc0000;
+    border-color: black;
     color: white;
 }
 
@@ -83,7 +83,7 @@ main {
 }
 
 .btn-next:hover {
-    background-color: #02529e;
+    background-color: #39748d;
     color: white;
 }
 
