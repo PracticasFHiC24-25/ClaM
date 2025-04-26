@@ -18,6 +18,10 @@ html, body {
     height: 40px;
     width: auto;
   }
+
+  .navbar-toggler {
+    background: white;
+  }  
   
   .logo-text {
     font-family: 'Quicksand', sans-serif;
@@ -31,7 +35,6 @@ html, body {
     font-family: 'Quicksand', sans-serif;
     font-size: 28px;
     font-weight: bold;
-    text-transform: uppercase;
     color: #102228;
   }
   
@@ -94,6 +97,12 @@ html, body {
     align-items: center;
     width: 65px;
   }
+
+  @media (max-width: 768px) {
+    .weekly-progress-day {
+      width: 37px;
+    }
+  }
   
   .weekly-progress-bar-wrapper {
     background: #e0e0e0;
@@ -102,7 +111,10 @@ html, body {
     height: 80px;
     display: flex;
     align-items: flex-end;
-  }
+    border-width: 1px;
+    border-style: solid;
+    border-color: #5f56ff;
+  }  
   
   .weekly-progress-bar {
     background-color: #918BFF;
@@ -118,19 +130,25 @@ html, body {
   }
   
   .week-bar-progress-wrapper {
-    width: 60%;
+    width: 80%;
     margin: 0 auto; 
     display: flex; 
   }
-  
+
   .bar-week-progress {
     height: 10px;
     background-color: #918BFF;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #5f56ff;
   }
   
   .bar-week-progress-left {
     height: 10px;
     background-color: #d5d4fd;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #5f56ff;
   }
 
   .label-text {

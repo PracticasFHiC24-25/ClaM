@@ -18,6 +18,10 @@ html, body {
     height: 40px;
     width: auto;
   }
+
+  .navbar-toggler {
+    background: white;
+  }  
   
   .logo-text {
     font-family: 'Quicksand', sans-serif;
@@ -31,7 +35,6 @@ html, body {
     font-family: 'Quicksand', sans-serif;
     font-size: 28px;
     font-weight: bold;
-    text-transform: uppercase;
     color: #102228;
   }
   
@@ -80,7 +83,7 @@ html, body {
   }
 
   .info-block {
-    margin-left: 20%;
+    margin-left: 10%;
   }
 
   .total-time {
@@ -90,7 +93,7 @@ html, body {
 
   .bar-container {
     display: flex;
-    max-width: 60%;
+    max-width: 80%;
     margin: 0 auto;
     height: 12px;
     overflow: hidden;
@@ -98,27 +101,46 @@ html, body {
 
   .study {
     background: #0ea964;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00b463;
   }
-
+  
   .study-left {
     background: #a2eac4;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00b463;
   }
   
   .warmup {
     background: #2062e2;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0249d8;
   }
-
+  
   .warmup-left {
     background: #bbd9ff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #0249d8;
   }
   
   .rest {
     background: #ff5100;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #af3700;
   }
-
+  
   .rest-left {
     background: #ffd9b0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #af3700;
   }
+  
 
   .bar {
     height: 100%;
@@ -126,15 +148,15 @@ html, body {
 
   .bar-container {
     display: flex;
-    max-width: 60%;
+    max-width: 80%;
     margin: 0 auto;
     height: 12px;
     overflow: hidden;
   }
   
   .info-block-labels {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 5px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -31,7 +31,6 @@ h1 {
   font-family: 'Quicksand', sans-serif;
   font-size: 28px;
   font-weight: bold;
-  text-transform: uppercase;
   color: #102228;
 }
 
@@ -76,7 +75,15 @@ p, span, a, li {
 }
 
 #barChart {
-  max-width: 60%;
+  width: 100%;
+  max-width: 800px;
+  max-height: 400px;
+}
+
+@media (max-width: 768px) {
+  #barChart {
+    max-width: 80%;
+  }
 }
 
 .bar {
@@ -89,7 +96,7 @@ p, span, a, li {
 
 .bar-container {
   display: flex;
-  max-width: 60%;
+  max-width: 80%;
   margin: 0 auto;
   height: 12px;
   overflow: hidden;
@@ -98,26 +105,48 @@ p, span, a, li {
 
 .study {
   background: #0ea964;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #00b463;
 }
 
 .study-left {
   background: #a2eac4;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #00b463;
 }
 
 .warmup {
   background: #2062e2;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #0249d8;
 }
 
 .warmup-left {
   background: #bbd9ff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #0249d8;
 }
 
 .rest {
   background: #ff5100;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #af3700;
+}
+
+.navbar-toggler {
+  background: white;
 }
 
 .rest-left {
   background: #ffd9b0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #af3700;
 }
 
 .week-bar-progress-wrapper {
@@ -135,11 +164,17 @@ p, span, a, li {
 .bar-week-progress {
   height: 10px;
   background-color: #918BFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #5f56ff;
 }
 
 .bar-week-progress-left {
   height: 10px;
   background-color: #d5d4fd;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #5f56ff;
 }
 
 .total-time {
@@ -148,7 +183,7 @@ p, span, a, li {
 }
 
 .info-block {
-  margin-left: 20%;
+  margin-left: 10%;
 }
 
 .label-text {
@@ -186,6 +221,12 @@ p, span, a, li {
   width: 65px;
 }
 
+@media (max-width: 768px) {
+  .weekly-progress-day {
+    width: 37px;
+  }
+}
+
 .weekly-progress-bar-wrapper {
   background: #e0e0e0;
   border-radius: 10px;
@@ -193,6 +234,9 @@ p, span, a, li {
   height: 80px;
   display: flex;
   align-items: flex-end;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #5f56ff;
 }
 
 .weekly-progress-bar {
