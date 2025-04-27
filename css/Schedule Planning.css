@@ -13,6 +13,26 @@ main {
     flex: 1;
 }
 
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #102228;
+    line-height: 40px;
+}
+
+.btn {
+    border: 1px solid #102228;
+    color: #102228;
+    background-color: transparent;
+}
+
+.btn:hover {
+    background-color: #468FAF;
+    color: white;
+}
+
 /* Logo Header */
 .logo-img {
     height: 40px;

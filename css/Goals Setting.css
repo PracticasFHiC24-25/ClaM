@@ -1,5 +1,3 @@
-
-
 html, body {
     height: 100%;
     margin: 0;
@@ -10,9 +8,49 @@ html, body {
     color: #102228;
 }
 
-
 main {
     flex: 1;
+}
+
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #102228;
+    line-height: 40px;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: light;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.btn {
+    border: 1px solid #102228;
+    color: #102228;
+    background-color: transparent;
+}
+
+.btn:hover {
+    background-color: #468FAF;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #CC0000;
+    color: white;
+}
+
+
+.form-control {
+    border: 1px solid #CED4DA;
+}
+
+.form-control:hover {
+    border-color: #102228;
 }
 
 /* Logo Header */
@@ -50,7 +88,6 @@ main {
     color: #D1DFFF !important;
 }
 
-  
 footer {
     background-color: #102228;
     color: #FFFFFF;

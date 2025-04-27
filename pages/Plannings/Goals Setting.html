@@ -56,19 +56,19 @@
 
     <main>
         <div id="goals-app" class="container py-5">
-            <h1 class="text-center mb-4">Definir objectius</h1>
+            <h1 class="text-center mb-5">Definir objectius</h1>
             <!-- Formulario -->
             <form class="row g-2 align-items-end mb-4">
                   <div class="col-md-4">
                       <label class="form-label">Nom</label>
-                      <input class="form-control" v-model.trim="newGoal.name" required>
+                      <input class="form-control" v-model.trim="newGoal.name" placeholder="Nom de l'objectiu" required>
                   </div>
                 
                   <div class="col-md-3">
                       <label class="form-label">Setmanal</label>
                       <div class="input-group">
                           <input type="number" min="1" class="form-control"
-                                v-model.number="newGoal.week.value" required>
+                                v-model.number="newGoal.week.value" placeholder="Hores/minuts" required>
                           <select class="form-select" v-model="newGoal.week.unit">
                             <option value="h">h</option><option value="m">m</option>
                           </select>
@@ -79,7 +79,7 @@
                       <label class="form-label">Diari</label>
                       <div class="input-group">
                           <input type="number" min="0" class="form-control"
-                                v-model.number="newGoal.day.value">
+                                v-model.number="newGoal.day.value" placeholder="Hores/minuts" required>
                           <select class="form-select" v-model="newGoal.day.unit">
                             <option value="h">h</option><option value="m">m</option>
                           </select>
@@ -87,7 +87,7 @@
                   </div>
                 
                   <div class="col-md-2 text-md-start">
-                      <button type ="button" class="btn btn-success w-100" v-on:click="addGoal">Afegir</button>
+                      <button type ="button" class="btn btn-primary w-100" v-on:click="addGoal">Afegir</button>
                   </div>
               </form>
 
@@ -116,7 +116,7 @@
               <!-- Botones finales -->
               <div class="text-end mt-4">
                 <a href="Plannings.html" class="btn btn-secondary me-2">Tornar</a>
-                <button class="btn btn-primary" v-bind:disabled="!goals.length" v-on:click="saveAll">Desar tots</button>
+                <button class="btn btn-primary" v-on:click="saveAll">Desar tots</button>
               </div>
         </div>
 
