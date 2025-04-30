@@ -101,13 +101,13 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="form-floating">
+                                <div class="form-floating position-relative">
                                     <input :type="showPassword ? 'text' : 'password'" class="form-control" id="signupPassword" placeholder="Contrasenya" 
                                            v-model="signupData.password" 
                                            @blur="validateField('password')" 
                                            :class="{ 'is-invalid': errors.password }">
                                     <label for="signupPassword">Contrasenya</label>
-                                    <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
+                                    <button v-if="!errors.password" type="button" class="btn password-toggle position-absolute" @click="togglePassword">
                                         <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
                                     </button>
                                     <div class="invalid-feedback">{{ errors.password }}</div>
@@ -161,13 +161,13 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="form-floating">
+                                <div class="form-floating position-relative">
                                     <input :type="showPassword ? 'text' : 'password'" class="form-control" id="loginPassword" placeholder="Contrasenya" 
                                            v-model="loginData.password" 
                                            @blur="validateLoginField('password')" 
                                            :class="{ 'is-invalid': errors.loginPassword }">
                                     <label for="loginPassword">Contrasenya</label>
-                                    <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
+                                    <button v-if="!errors.loginPassword" type="button" class="btn password-toggle position-absolute" @click="togglePassword">
                                         <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
                                     </button>
                                     <div class="invalid-feedback">{{ errors.loginPassword }}</div>
