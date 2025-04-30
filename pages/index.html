@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 
 <head>
     <meta charset="UTF-8">
@@ -44,8 +44,8 @@
                     </div>
                     
                     <div class="hero-content">
-                        <h1 class="hero-title">Productividad Musical</h1>
-                        <p class="hero-subtitle">Tu herramienta para crear y gestionar tu música</p>
+                        <h1 class="hero-title">Productivitat Musical</h1>
+                        <p class="hero-subtitle">La teva eina per crear i gestionar la teva música</p>
                     </div>
                 </div>
                 
@@ -64,67 +64,79 @@
 
                     <!-- SIGNUP FORM -->
                     <div v-if="formType === 'signup'">
-                        <h2 class="form-title">Create an account</h2>
-                        <p class="mb-4">Already have an account? <a href="#" @click.prevent="switchForm('login')" class="text-primary text-decoration-none">Log in</a></p>
+                        <h2 class="form-title">Crea un compte</h2>
+                        <p class="mb-4">Ja tens un compte? <a href="#" @click.prevent="switchForm('login')" class="text-primary text-decoration-none">Inicia sessió</a></p>
                         
                         <form @submit.prevent="submitSignup" novalidate>
                             <div class="row mt-5 mb-3">
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <input type="text" class="form-control" placeholder="First name" 
-                                           v-model.trim="signupData.firstName" 
-                                           @blur="validateField('firstName')" 
-                                           :class="{ 'is-invalid': errors.firstName }">
-                                    <div class="invalid-feedback">{{ errors.firstName }}</div>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="firstName" placeholder="Nom" 
+                                               v-model.trim="signupData.firstName" 
+                                               @blur="validateField('firstName')" 
+                                               :class="{ 'is-invalid': errors.firstName }">
+                                        <label for="firstName">Nom</label>
+                                        <div class="invalid-feedback">{{ errors.firstName }}</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Last name" 
-                                           v-model.trim="signupData.lastName" 
-                                           @blur="validateField('lastName')" 
-                                           :class="{ 'is-invalid': errors.lastName }">
-                                    <div class="invalid-feedback">{{ errors.lastName }}</div>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Cognoms" 
+                                               v-model.trim="signupData.lastName" 
+                                               @blur="validateField('lastName')" 
+                                               :class="{ 'is-invalid': errors.lastName }">
+                                        <label for="lastName">Cognoms</label>
+                                        <div class="invalid-feedback">{{ errors.lastName }}</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Email" 
-                                       v-model.trim="signupData.email" 
-                                       @blur="validateField('email')" 
-                                       :class="{ 'is-invalid': errors.email }">
-                                <div class="invalid-feedback">{{ errors.email }}</div>
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="signupEmail" placeholder="Correu electrònic" 
+                                           v-model.trim="signupData.email" 
+                                           @blur="validateField('email')" 
+                                           :class="{ 'is-invalid': errors.email }">
+                                    <label for="signupEmail">Correu electrònic</label>
+                                    <div class="invalid-feedback">{{ errors.email }}</div>
+                                </div>
                             </div>
-                            <div class="mb-3 position-relative">
-                                <input :type="showPassword ? 'text' : 'password'" class="form-control" placeholder="Enter your password" 
-                                       v-model="signupData.password" 
-                                       @blur="validateField('password')" 
-                                       :class="{ 'is-invalid': errors.password }">
-                                <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
-                                    <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
-                                </button>
-                                <div class="invalid-feedback">{{ errors.password }}</div>
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <input :type="showPassword ? 'text' : 'password'" class="form-control" id="signupPassword" placeholder="Contrasenya" 
+                                           v-model="signupData.password" 
+                                           @blur="validateField('password')" 
+                                           :class="{ 'is-invalid': errors.password }">
+                                    <label for="signupPassword">Contrasenya</label>
+                                    <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
+                                        <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                                    </button>
+                                    <div class="invalid-feedback">{{ errors.password }}</div>
+                                </div>
                             </div>
                             <div class="mb-5 form-check" :class="{ 'is-invalid': errors.terms }">
                                 <input type="checkbox" class="form-check-input" id="termsCheck" 
                                        v-model="signupData.terms" 
                                        @change="validateField('terms')" 
                                        :class="{ 'is-invalid': errors.terms }">
-                                <label class="form-check-label" for="termsCheck">I agree to the <a href="#" class="text-primary text-decoration-none">Terms & Conditions</a></label>
+                                <label class="form-check-label" for="termsCheck">Accepto els <a href="#" @click.prevent="handleTermsAndConditions" class="text-primary text-decoration-none">Termes i Condicions</a></label>
                                 <div class="invalid-feedback d-block" v-if="errors.terms">{{ errors.terms }}</div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Create account</button>
+                            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Crear compte</button>
                             
                             <div class="divider">
-                                <span>Or register with</span>
+                                <span>O registra't amb</span>
                             </div>
                             
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <button type="button" class="social-btn w-100">
+                                    <button type="button" class="social-btn w-100" @click="handleGoogleLogin">
                                         <i class="bi bi-google"></i>
                                         <span class="ms-2">Google</span>
                                     </button>
                                 </div>
                                 <div class="col-6">
-                                    <button type="button" class="social-btn w-100">
+                                    <button type="button" class="social-btn w-100" @click="handleAppleLogin">
                                         <i class="bi bi-apple me-2"></i>
                                         Apple
                                     </button>
@@ -134,48 +146,54 @@
                     </div>
                     <!-- LOGIN FORM -->
                     <div v-else>
-                        <h2 class="form-title">Welcome back</h2>
-                        <p class="mb-4">Don't have an account? <a href="#" @click.prevent="switchForm('signup')" class="text-primary text-decoration-none">Sign up</a></p>
+                        <h2 class="form-title">Benvingut/da de nou</h2>
+                        <p class="mb-4">No tens compte? <a href="#" @click.prevent="switchForm('signup')" class="text-primary text-decoration-none">Registra't</a></p>
                         
                         <form @submit.prevent="submitLogin" novalidate>
                             <div class="mb-3 mt-5">
-                                <input type="text" class="form-control" placeholder="Email" 
-                                       v-model.trim="loginData.email" 
-                                       @blur="validateLoginField('email')" 
-                                       :class="{ 'is-invalid': errors.loginEmail }">
-                                <div class="invalid-feedback">{{ errors.loginEmail }}</div>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="loginEmail" placeholder="Correu electrònic" 
+                                           v-model.trim="loginData.email" 
+                                           @blur="validateLoginField('email')" 
+                                           :class="{ 'is-invalid': errors.loginEmail }">
+                                    <label for="loginEmail">Correu electrònic</label>
+                                    <div class="invalid-feedback">{{ errors.loginEmail }}</div>
+                                </div>
                             </div>
-                            <div class="mb-3 position-relative">
-                                <input :type="showPassword ? 'text' : 'password'" class="form-control" placeholder="Password" 
-                                       v-model="loginData.password" 
-                                       @blur="validateLoginField('password')" 
-                                       :class="{ 'is-invalid': errors.loginPassword }">
-                                <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
-                                    <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
-                                </button>
-                                <div class="invalid-feedback">{{ errors.loginPassword }}</div>
+                            <div class="mb-3">
+                                <div class="form-floating">
+                                    <input :type="showPassword ? 'text' : 'password'" class="form-control" id="loginPassword" placeholder="Contrasenya" 
+                                           v-model="loginData.password" 
+                                           @blur="validateLoginField('password')" 
+                                           :class="{ 'is-invalid': errors.loginPassword }">
+                                    <label for="loginPassword">Contrasenya</label>
+                                    <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
+                                        <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                                    </button>
+                                    <div class="invalid-feedback">{{ errors.loginPassword }}</div>
+                                </div>
                             </div>
                             <div class="mb-3 d-flex justify-content-end">
-                                <a href="#" class="text-primary text-decoration-none small">Forgot password?</a>
+                                <a href="#" @click.prevent="handleForgotPassword" class="text-primary text-decoration-none small">Has oblidat la contrasenya?</a>
                             </div>
                             <!-- General Login Error -->
                             <div v-if="errors.loginGeneral" class="alert alert-danger small py-2 mb-3">{{ errors.loginGeneral }}</div>
 
-                            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Log in</button>
+                            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Iniciar sessió</button>
                             
                             <div class="divider">
-                                <span>Or log in with</span>
+                                <span>O inicia sessió amb</span>
                             </div>
                             
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <button type="button" class="social-btn w-100">
+                                    <button type="button" class="social-btn w-100" @click="handleGoogleLogin">
                                         <i class="bi bi-google"></i>
                                         <span class="ms-2">Google</span>
                                     </button>
                                 </div>
                                 <div class="col-6">
-                                    <button type="button" class="social-btn w-100">
+                                    <button type="button" class="social-btn w-100" @click="handleAppleLogin">
                                         <i class="bi bi-apple me-2"></i>
                                         Apple
                                     </button>
@@ -187,12 +205,12 @@
                     <div class="form-footer">
                         <p class="text-muted mb-2">
                             <i class="bi bi-music-note me-1"></i>
-                            Join Clam and discover the beauty of classical music
+                            Uneix-te a Clam i descobreix la bellesa de la música clàssica
                         </p>
                         <!-- Show the tagline on mobile only -->
                         <div class="d-md-none text-center mt-3">
-                            <h5 class="mb-1 text-white bg-dark p-2 rounded">Productividad Musical</h5>
-                            <p class="text-muted small mb-0">Tu herramienta para crear y gestionar tu música</p>
+                            <h5 class="mb-1 text-white bg-dark p-2 rounded">Productivitat Musical</h5>
+                            <p class="text-muted small mb-0">La teva eina per crear i gestionar la teva música</p>
                         </div>
                     </div>
                 </div>

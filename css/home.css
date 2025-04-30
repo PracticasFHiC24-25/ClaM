@@ -2,7 +2,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #EEF1ED;
-    color: #3e99b8;
+    color: #468FAF;
     margin: 0;
     height: 100vh;
     display: flex;
@@ -77,17 +77,18 @@ p, span, a, li {
 
 .welcome-title {
     text-transform: capitalize;
-    color: #72C5FF;
+    color: #102228;
 }
 
 .subtitle {
-    color: #468FAF 
+    color: #468FAF;
 }
 
 /* Card and button styles */
 .card {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
     border-radius: 0.5rem; /* Slightly rounded corners */
+    border: 1px solid rgba(114, 197, 255, 0.2);
 }
 
 .progress-bar {
@@ -95,14 +96,14 @@ p, span, a, li {
 }
 
 .badge {
-    color: #468FAF;
-    background-color: rgba(114, 197, 255, 0.2);
+    color: #FFFFFF;
+    background-color: #72C5FF;
     border-radius: 0.375rem;
     padding: 0.5rem 1rem;
 }
 
 .stat-box {
-    background-color: rgba(209, 223, 255, 0.3);
+    background-color: rgba(114, 197, 255, 0.1);
     border-radius: 0.375rem; /* Slightly rounded corners */
     margin-bottom: 1rem; /* Add some space below stat boxes on smaller screens */
 }
@@ -113,16 +114,18 @@ p, span, a, li {
 }
 
 .btn-primary {
-    background-color: #FFFFFF;
-    border-color: #082691;
+    background-color: white;
+    border: 1px solid #082691;
     color: #082691;
     padding: 0.5rem 1rem;
-  }
+    transition: all 0.2s;
+}
 
-  .btn-primary:hover {
+.btn-primary:hover {
     background-color: #4273C2;
-    color: #FFFFFF;
-  }
+    color: white;
+    border: 1px solid #4273C2;
+}
 
 .list-group-item {
     border-left: none;
@@ -140,11 +143,16 @@ p, span, a, li {
 }
 
 .list-group-item-action:hover, .list-group-item-action:focus {
-    background-color: #f8f9fa; /* Subtle hover effect */
+    background-color: rgba(114, 197, 255, 0.1);
+    color: #468FAF;
 }
 
 .list-group-item .fw-bold {
-    color: #343a40; /* Darker text for titles */
+    color: #102228;
+}
+
+.text-muted {
+    color: #75828A !important;
 }
 
 .container {

@@ -91,39 +91,39 @@ document.addEventListener('DOMContentLoaded', function() {
                     switch (field) {
                         case 'firstName':
                             if (!value) {
-                                this.errors.firstName = 'First name is required.';
+                                this.errors.firstName = 'El nom és obligatori.';
                             } else if (!this.nameRegex.test(value)) {
-                                this.errors.firstName = 'Please enter a valid first name (1-50 chars).';
+                                this.errors.firstName = 'Si us plau, introdueix un nom vàlid (1-50 caràcters).';
                             }
                             break;
                         case 'lastName':
                             if (!value) {
-                                this.errors.lastName = 'Last name is required.';
+                                this.errors.lastName = 'Els cognoms són obligatoris.';
                             } else if (!this.nameRegex.test(value)) {
-                                this.errors.lastName = 'Please enter a valid last name (1-50 chars).';
+                                this.errors.lastName = 'Si us plau, introdueix uns cognoms vàlids (1-50 caràcters).';
                             }
                             break;
                         case 'email':
                             if (!value) {
-                                this.errors.email = 'Email is required.';
+                                this.errors.email = 'El correu electrònic és obligatori.';
                             } else if (value.length > 254) {
-                                this.errors.email = 'Email cannot exceed 254 characters.';
+                                this.errors.email = 'El correu electrònic no pot superar els 254 caràcters.';
                             } else if (!this.emailRegex.test(value)) {
-                                this.errors.email = 'Please enter a valid email address.';
+                                this.errors.email = 'Si us plau, introdueix un correu electrònic vàlid.';
                             }
                             break;
                         case 'password':
                             if (!value) {
-                                this.errors.password = 'Password is required.';
+                                this.errors.password = 'La contrasenya és obligatòria.';
                             } else if (value.length < 8) {
-                                this.errors.password = 'Password must be at least 8 characters long.';
+                                this.errors.password = 'La contrasenya ha de tenir almenys 8 caràcters.';
                             } else if (!this.passwordRegex.test(value)) {
-                                this.errors.password = 'Password must include uppercase, lowercase, number, and special character.';
+                                this.errors.password = 'La contrasenya ha d\'incloure majúscules, minúscules, números i caràcters especials.';
                             }
                             break;
                         case 'terms':
                             if (!value) {
-                                this.errors.terms = 'You must agree to the Terms & Conditions.';
+                                this.errors.terms = 'Has d\'acceptar els Termes i Condicions.';
                             } else {
                                 this.errors.terms = null; // Clear error if checked
                             }
@@ -140,14 +140,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     switch (field) {
                         case 'email':
                             if (!value) {
-                                this.errors.loginEmail = 'Email is required.';
+                                this.errors.loginEmail = 'El correu electrònic és obligatori.';
                             } else if (value !== 'master' && !this.emailRegex.test(value)) { // Allow 'master' or valid email format
-                                this.errors.loginEmail = 'Please enter a valid email address.';
+                                this.errors.loginEmail = 'Si us plau, introdueix un correu electrònic vàlid.';
                             }
                             break;
                         case 'password':
                             if (!value) {
-                                this.errors.loginPassword = 'Password is required.';
+                                this.errors.loginPassword = 'La contrasenya és obligatòria.';
                             }
                             break;
                     }
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log('Signup form is valid. Submitting data:', this.signupData);
                         // Should add actual form submission logic here, API call and response handling.
                         // In this example, we will just simulate a successful signup.
-                        alert('Account creation successful!');
+                        alert('Compte creat amb èxit!');
                         // Reset the form after successful signup
                         this.resetSignupForm();
                         // redirect to login page
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log('Signup form is invalid.');
                         // Ensure terms error is shown if it's the only thing missing
                         if (!this.signupData.terms && !this.errors.terms) {
-                             this.errors.terms = 'You must agree to the Terms & Conditions.';
+                             this.errors.terms = 'Has d\'acceptar els Termes i Condicions.';
                         }
                     }
                 },
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             window.location.href = '/pages/home.html';
                         } else {
                             console.log('Invalid credentials.');
-                            this.errors.loginGeneral = 'Invalid email or password.';
+                            this.errors.loginGeneral = 'Correu electrònic o contrasenya incorrectes.';
                             // Clear password field on invalid login 
                             this.loginData.password = '';
                         }
@@ -211,6 +211,26 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.log('Login form is invalid.');
                     }
                 },
+                // Handle Google login
+                handleGoogleLogin() {
+                    alert('No Implementat login amb Google');
+                },
+                
+                // Handle Apple login
+                handleAppleLogin() {
+                    alert('No Implementat login amb Apple');
+                },
+                
+                // Handle forgot password click
+                handleForgotPassword() {
+                    alert('No implementat funcionalitat de recuperar la contraseña');
+                },
+                
+                // Handle terms and conditions click
+                handleTermsAndConditions() {
+                    alert('La pàgina termes i condicions no está creada.');
+                },
+                
                 // Clear all error messages
                 clearErrors() {
                     this.errors = {
