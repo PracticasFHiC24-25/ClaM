@@ -59,7 +59,10 @@ html, body {
   
   /* Navbar */
   .navbar {
-    background-color: #102228;
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* Ensure it stays above other content */
+    background-color: #102228; /* Keep the background consistent */
   }
   
   .navbar-brand,

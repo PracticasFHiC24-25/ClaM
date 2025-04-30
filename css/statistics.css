@@ -55,7 +55,10 @@ p, span, a, li {
 
 /* Navbar */
 .navbar {
-  background-color: #102228;
+  position: sticky;
+  top: 0;
+  z-index: 1020; /* Ensure it stays above other content */
+  background-color: #102228; /* Keep the background consistent */
 }
 
 .navbar-brand,
@@ -193,8 +196,8 @@ p, span, a, li {
 }
 
 .info-block-labels {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
