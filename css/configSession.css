@@ -30,6 +30,7 @@ main {
 .time-circle {
     width: 80px;
     height: 80px;
+    font-weight: bold;
     border-radius: 50%;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -79,14 +80,35 @@ main {
     font-size: 16px;
 }
 
+.warm-up-border > .text-center > .btn-container > .btn {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.practice-border > .text-center > .btn-container > .btn {
+    background-color: #468FAF;
+    color: white;
+}
+
+.rest-border > .text-center > .btn-container > .btn {
+    background-color: #20c997;
+    color: white;
+}
+
 .start-btn {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    background-color: #000;
-    color: white;
-    border: none;
+    background-color: white;
+    color: #082691;
+    border: 1px solid #082691;
     margin-top: 10px;
+}
+
+.start-btn:hover {
+    background-color: #4273C2;
+    color: white;
+    border: 1px solid white;
 }
 
 .icon {
@@ -96,8 +118,11 @@ main {
 
 /* Navbar */
 .navbar {
-    background-color: #102228;
-}
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* Ensure it stays above other content */
+    background-color: #102228; /* Keep the background consistent */
+  }
 
 .navbar-brand,
 .navbar-nav .nav-link {

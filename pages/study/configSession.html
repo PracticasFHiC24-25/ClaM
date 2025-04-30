@@ -34,12 +34,12 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/pages/home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/config.html">Settings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/Plannings/Plannings.html">Plannings</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/pages/study/configSession.html">Study</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/resources/resources.html">Resources</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/pages/home.html">Inici</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/pages/config.html">Configuració</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/pages/Plannings/Plannings.html">Planificacions</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="/pages/study/configSession.html">Estudi</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Estadístiques</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/pages/resources/resources.html">Recursos</a></li>
                 </ul>
             </div>
         </div>
@@ -66,8 +66,8 @@
                                     {{ formatTime(warmUpTime) }}
                                 </div>
                                 <div class="btn-container">
-                                    <button @click="decreaseTime('warmUp')" class="btn btn-secondary">-</button>
-                                    <button @click="increaseTime('warmUp')" class="btn btn-warning text-white">+</button>
+                                    <button @click="decreaseTime('warmUp')" class="btn">-</button>
+                                    <button @click="increaseTime('warmUp')" class="btn">+</button>
                                 </div>
                             </div>
                         </div>
@@ -88,8 +88,8 @@
                                     {{ formatTime(practiceTime) }}
                                 </div>
                                 <div class="btn-container">
-                                    <button @click="decreaseTime('practice')" class="btn btn-secondary">-</button>
-                                    <button @click="increaseTime('practice')" class="btn btn-primary">+</button>
+                                    <button @click="decreaseTime('practice')" class="btn">-</button>
+                                    <button @click="increaseTime('practice')" class="btn">+</button>
                                 </div>
                             </div>
                         </div>
@@ -110,8 +110,8 @@
                                     {{ formatTime(restTime) }}
                                 </div>
                                 <div class="btn-container">
-                                    <button @click="decreaseTime('rest')" class="btn btn-secondary">-</button>
-                                    <button @click="increaseTime('rest')" class="btn btn-success">+</button>
+                                    <button @click="decreaseTime('rest')" class="btn">-</button>
+                                    <button @click="increaseTime('rest')" class="btn">+</button>
                                 </div>
                             </div>
                         </div>
