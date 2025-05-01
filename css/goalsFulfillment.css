@@ -1,16 +1,13 @@
 /* Layout */
 html, body {
-    height: 100%;
     margin: 0;
-    display: flex;
-    flex-direction: column;
     font-family: 'Inter', sans-serif;
     background-color: #EEF1ED;
     color: #102228;
   }
   
   body {
-    min-height: 300vh; /* Ensure the body is at least the height of the viewport */
+    min-height: 100vh; /* Ensure the body is at least the height of the viewport */
   }
 
   main {
@@ -65,7 +62,7 @@ html, body {
   .navbar {
     position: sticky !important;
     top: 0;
-    z-index: 2050; /* Ensure it stays above other content */
+    z-index: 3050; /* Ensure it stays above other content */
     background-color: #102228; /* Keep the background consistent */
   }
   
