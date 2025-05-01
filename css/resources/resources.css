@@ -93,17 +93,17 @@ html, body {
   }
 
   #library-selection {
-    background: url('../images/library.jpg');
+    background: url('../../images/library.jpg');
     background-size: cover;
   }  
 
   #metronome-selection {
-    background: url('../images/metronome.jpg');
+    background: url('../../images/metronome.jpg');
     background-size: cover;
   } 
 
   #tuner-selection {
-    background: url('../images/tuner.jpg');
+    background: url('../../images/tuner.jpg');
     background-size: cover;
   } 
 
