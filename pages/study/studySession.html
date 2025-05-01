@@ -83,12 +83,14 @@
                     <div :id="'collapse' + index" class="accordion-collapse collapse"
                         :data-bs-parent="'#' + accordionId">
                         <div class="accordion-body text-center">
-                            <img :src="exercise.image" class="accordion-image" :alt="exercise.title">
+                            <iframe
+                                   :src="exercise.image" 
+                                   class="accordion-pdf" 
+                                   :title="exercise.title"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- Show phase progression indicator -->
             <div class="progress mt-5">
                 <div class="progress-bar" role="progressbar" :class="{

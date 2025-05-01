@@ -18,18 +18,18 @@ new Vue({
 
         // Content for different phases
         warm_exercises: [
-            { image: '/images/partitura.png', title: 'Partitura escalfament 1' },
-            { image: '/images/partitura.png', title: 'Partitura escalfament 2' },
-            { image: '/images/partitura.png', title: 'Partitura escalfament 3' },
-            { image: '/images/partitura.png', title: 'Partitura escalfament 4' },
-            { image: '/images/partitura.png', title: 'Partitura escalfament 5' }
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Partitura escalfament 1' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Partitura escalfament 2' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Partitura escalfament 3' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Partitura escalfament 4' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Partitura escalfament 5' }
         ],
         practice_exercises: [
-            { image: '/images/partitura.png', title: 'Exercici 1' },
-            { image: '/images/partitura.png', title: 'Exercici 2' },
-            { image: '/images/partitura.png', title: 'Exercici 3' },
-            { image: '/images/partitura.png', title: 'Exercici 4' },
-            { image: '/images/partitura.png', title: 'Exercici 5' }
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Exercici 1' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Exercici 2' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Exercici 3' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Exercici 4' },
+            { image: '/pages/resources/library/Brouwer, L. - Decamerón Negro.pdf', title: 'Exercici 5' }
         ]
     },
     computed: {
