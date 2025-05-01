@@ -63,11 +63,23 @@
         <div class="metronome-info">
           <p id="bpm-num">{{ bpm }}</p> <p id="bpm-text">BPM</p>
 
-          <button class="button" id="start-pause-button" @click="startMetronome">Start</button>
+          <img class="start-pause" id="bttn_pause" :src="bttnStartStop" @click = "changeMetronome()">
         </div>
 
         <div class="metronome-tempo">
-        
+          <img class="bttn-bpm-change" id="bttn-less" src="/images/bttn_less.png" @click="decreaseBPM()">
+
+          <div class="metronome-slider">
+            <input 
+              id="bpm-slider" 
+              type="range" 
+              :min="minBPM"
+              :max="maxBPM"
+              v-model="bpm">
+            </input>
+          </div>
+
+          <img class="bttn-bpm-change" id="bttn-more" src="/images/bttn_more.png" @click="increaseBPM()">
         </div>
       </div>
 

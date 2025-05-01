@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM content loaded, initializing Vue app for config...');
-
     try {
         const app = new Vue({
             el: '#config-form',
@@ -8,99 +6,167 @@ document.addEventListener('DOMContentLoaded', function() {
                 username: '',
                 email: '',
                 newPassword: '',
-                language: 'ca', // Default language
-                showPassword: false, // Added for password toggle
+                language: 'ca',
+                showPassword: false,
+                isLoading: false,
+                isSaved: false,
                 errors: {
                     username: null,
                     email: null,
                     newPassword: null,
                     general: null
                 },
-                // Regex patterns (similar to login.js)
                 nameRegex: /^[a-zA-Zà-ÿÀ-Ÿ' -]{1,50}$/,
                 emailRegex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                // Password: 8+ chars, 1 uppercase, 1 lowercase, 1 number, 1 special char
                 passwordRegex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/
+            },
+            created() {
+                // Load user data when component is created
+                this.loadUserData();
             },
             computed: {
                 isFormValid() {
-                    const fieldsFilled = this.username && this.email && this.newPassword;
-                    const noErrors = !this.errors.username && !this.errors.email && !this.errors.newPassword;
+                    const fieldsFilled = this.username && this.email;
+                    const noErrors = !this.errors.username && !this.errors.email;
+                    // Only check password if it's been modified
+                    if (this.newPassword) {
+                        return fieldsFilled && noErrors && !this.errors.newPassword;
+                    }
                     return fieldsFilled && noErrors;
+                },
+                saveButtonText() {
+                    return this.isLoading ? 'Desant...' : 'Desar canvis';
                 }
             },
             methods: {
-                // Added method to toggle password visibility
+                async loadUserData() {
+                    try {
+                        // Simulate API call to load user data
+                        const mockUserData = {
+                            username: localStorage.getItem('username') || '',
+                            email: localStorage.getItem('email') || '',
+                            language: localStorage.getItem('language') || 'ca'
+                        };
+                        
+                        this.username = mockUserData.username;
+                        this.email = mockUserData.email;
+                        this.language = mockUserData.language;
+                    } catch (error) {
+                        console.error('Error loading user data:', error);
+                        this.errors.general = 'Error carregant les dades del usuari';
+                    }
+                },
                 togglePassword() {
                     this.showPassword = !this.showPassword;
                 },
-                // Validate a single field
                 validateField(field) {
-                    this.errors.general = null; // Clear general error on field interaction
-                    this.errors[field] = null; // Clear previous error for this field
-                    const value = this[field]; // Access data property directly
+                    this.errors.general = null;
+                    this.errors[field] = null;
+                    const value = this[field];
 
-                    switch (field) {
-                        case 'username':
-                            if (!value) {
-                                this.errors.username = "Nom d'usuari és requerit.";
-                            } else if (!this.nameRegex.test(value)) {
-                                this.errors.username = "Nom d'usuari ha de tenir entre 3 i 50 caràcters alfanumèrics.";
-                            }
-                            break;
-                        case 'email':
-                            if (!value) {
-                                this.errors.email = 'Email és requerit.';
-                            } else if (value.length > 254) {
-                                this.errors.email = 'Email no pot excedir 254 caràcters.';
-                            } else if (!this.emailRegex.test(value)) {
-                                this.errors.email = 'Si us plau, introdueix una adreça de correu electrònic vàlida.';
-                            }
-                            break;
-                        case 'newPassword':
-                            if (!value) {
-                                this.errors.newPassword = 'Nova contrasenya és requerida.';
-                            } else if (value.length < 8) {
-                                this.errors.newPassword = 'La contrasenya ha de tenir almenys 8 caràcters.';
-                            } else if (!this.passwordRegex.test(value)) {
-                                this.errors.newPassword = 'La contrasenya ha d\'incloure majúscules, minúscules, números i caràcters especials.';
-                            }
-                            break;
+                    if (field === 'newPassword' && !value) {
+                        // Skip validation if password field is empty (not being changed)
+                        return true;
                     }
-                },
-                // Validate all config fields
-                validateConfigForm() {
-                    this.validateField('username');
-                    this.validateField('email');
-                    this.validateField('newPassword');
-                    return this.isFormValid;
-                },
-                // Handle config form submission
-                submitConfig() {
-                    console.log('submitConfig function entered');
-                    this.errors.general = null; // Clear previous general error
 
+                    const validations = {
+                        username: {
+                            required: "Nom d'usuari és requerit.",
+                            pattern: {
+                                test: this.nameRegex,
+                                message: "Nom d'usuari ha de tenir entre 3 i 50 caràcters alfanumèrics."
+                            }
+                        },
+                        email: {
+                            required: 'Email és requerit.',
+                            pattern: {
+                                test: this.emailRegex,
+                                message: 'Si us plau, introdueix una adreça de correu electrònica vàlida.'
+                            },
+                            maxLength: {
+                                value: 254,
+                                message: 'Email no pot excedir 254 caràcters.'
+                            }
+                        },
+                        newPassword: {
+                            pattern: {
+                                test: this.passwordRegex,
+                                message: 'La contrasenya ha d\'incloure majúscules, minúscules, números i caràcters especials.'
+                            },
+                            minLength: {
+                                value: 8,
+                                message: 'La contrasenya ha de tenir almenys 8 caràcters.'
+                            }
+                        }
+                    };
+
+                    const fieldValidation = validations[field];
+                    
+                    if (fieldValidation.required && !value) {
+                        this.errors[field] = fieldValidation.required;
+                        return false;
+                    }
+
+                    if (fieldValidation.maxLength && value.length > fieldValidation.maxLength.value) {
+                        this.errors[field] = fieldValidation.maxLength.message;
+                        return false;
+                    }
+
+                    if (fieldValidation.minLength && value.length < fieldValidation.minLength.value) {
+                        this.errors[field] = fieldValidation.minLength.message;
+                        return false;
+                    }
+
+                    if (fieldValidation.pattern && !fieldValidation.pattern.test.test(value)) {
+                        this.errors[field] = fieldValidation.pattern.message;
+                        return false;
+                    }
+
+                    return true;
+                },
+                validateConfigForm() {
+                    const usernameValid = this.validateField('username');
+                    const emailValid = this.validateField('email');
+                    const passwordValid = !this.newPassword || this.validateField('newPassword');
+                    return usernameValid && emailValid && passwordValid;
+                },
+                async submitConfig() {
+                    this.errors.general = null;
+                    
                     if (this.validateConfigForm()) {
-                        console.log('Config form is valid. Submitting data:', {
-                            username: this.username,
-                            email: this.email,
-                            newPassword: this.newPassword,
-                            language: this.language
-                        });
-                        // TODO: Add actual form submission logic here (e.g., API call)
-                        // Simulate success for now
-                        alert('Canvis desats correctament!');
-                        this.username = '';
-                        this.email = '';
-                        this.newPassword = '';
-                        this.language = 'ca'; // Reset to default language
-                        this.clearErrors();
+                        this.isLoading = true;
+                        try {
+                            // Simulate API call
+                            await new Promise(resolve => setTimeout(resolve, 1000));
+                            
+                            // Save to localStorage for demo
+                            localStorage.setItem('username', this.username);
+                            localStorage.setItem('email', this.email);
+                            localStorage.setItem('language', this.language);
+                            
+                            if (this.newPassword) {
+                                // Handle password update in real implementation
+                                console.log('Password would be updated in real implementation');
+                            }
+                            
+                            this.isSaved = true;
+                            this.newPassword = ''; // Clear password field after save
+                            
+                            // Show success message briefly
+                            setTimeout(() => {
+                                this.isSaved = false;
+                            }, 1500);
+                            
+                        } catch (error) {
+                            console.error('Error saving config:', error);
+                            this.errors.general = 'Error desant els canvis. Si us plau, torna-ho a provar.';
+                        } finally {
+                            this.isLoading = false;
+                        }
                     } else {
-                        console.log('Config form is invalid.');
                         this.errors.general = 'Si us plau, corregeix els errors del formulari.';
                     }
                 },
-                // Clear all error messages
                 clearErrors() {
                     this.errors = {
                         username: null,
@@ -108,14 +174,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         newPassword: null,
                         general: null
                     };
-                },
-            },
-            mounted() {
-                console.log('Vue app for config mounted successfully');
+                }
             }
         });
 
-        console.log('Vue config app initialized:', app);
+        // Initialize contact button functionality
+        const contactButton = document.getElementById('contactButton');
+        if (contactButton) {
+            contactButton.addEventListener('click', () => {
+                window.location.href = 'mailto:support@clam.com';
+            });
+        }
     } catch (err) {
         console.error('Error initializing Vue for config:', err);
     }

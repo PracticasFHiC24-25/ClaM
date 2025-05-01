@@ -36,77 +36,101 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/pages/home.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/pages/config.html">Settings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/Plannings/Plannings.html">Plannings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/study/configSession.html">Study</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Statistics</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/pages/resources/resources.html">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/home.html">Inici</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/pages/config.html">Configuració</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/Plannings/Plannings.html">Planificacions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/study/configSession.html">Estudi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/statistics/statistics.html">Estadístiques</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pages/resources/resources.html">Recursos</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Main content-->
-    <div class="container mt-5" id="config-form"> <!-- Added id for Vue -->
+    <div class="container mt-5" id="config-form">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
                 <div class="config-card">
                     <div class="text-center mb-4">
-                        <h2>Configuració</h2>
+                        <h2>Configuració del Compte</h2>
+                        <p class="text-muted">Actualitza la teva informació personal i preferències</p>
                     </div>
 
-                    <!-- General Error Message -->
-                    <div v-if="errors.general" class="alert alert-danger mb-3">{{ errors.general }}</div>
+                    <div v-if="errors.general" class="alert alert-danger" role="alert">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        {{ errors.general }}
+                    </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="username" class="form-label">Nom d'usuari</label>
-                        <input type="text" class="form-control" id="username" placeholder="Nom d'usuari"
-                               v-model="username" @blur="validateField('username')">
-                        <small class="text-danger error-text" v-if="errors.username">{{ errors.username }}</small> <!-- Error message -->
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input type="text" class="form-control" id="username" 
+                                v-model="username" @blur="validateField('username')"
+                                :class="{'is-invalid': errors.username}">
+                        </div>
+                        <div class="invalid-feedback" v-if="errors.username">{{ errors.username }}</div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Nou email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Correu electrònic"
-                               v-model="email" @blur="validateField('email')">
-                        <small class="text-danger error-text" v-if="errors.email">{{ errors.email }}</small> <!-- Error message -->
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correu electrònic</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" 
+                                v-model="email" @blur="validateField('email')"
+                                :class="{'is-invalid': errors.email}">
+                        </div>
+                        <div class="invalid-feedback" v-if="errors.email">{{ errors.email }}</div>
                     </div>
 
-                    <div class="mb-3 position-relative">
-                        <label for="newPassword" class="form-label">Nova contrasenya</label>
-                        <input :type="showPassword ? 'text' : 'password'" class="form-control" id="newPassword" placeholder="Nova contrasenya"
-                               v-model="newPassword" @blur="validateField('newPassword')">
-                        <button type="button" class="btn password-toggle position-absolute" @click="togglePassword">
-                            <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
-                        </button>
-                        <small class="text-danger error-text" v-if="errors.newPassword">{{ errors.newPassword }}</small>
+                    <div class="mb-4">
+                        <label for="newPassword" class="form-label">Contrasenya</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                            <input :type="showPassword ? 'text' : 'password'" class="form-control" 
+                                id="newPassword" v-model="newPassword" 
+                                @blur="validateField('newPassword')"
+                                :class="{'is-invalid': errors.newPassword}">
+                            <button type="button" class="btn btn-outline-secondary" @click="togglePassword">
+                                <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+                            </button>
+                        </div>
+                        <div class="invalid-feedback" v-if="errors.newPassword">{{ errors.newPassword }}</div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="language" class="form-label">Idioma</label>
-                        <select class="form-select" id="language" v-model="language">
-                            <option value="ca">Català</option>
-                            <option value="es">Español</option>
-                            <option value="en">English</option>
-                        </select>
-                   </div>
-
-                    <div class="mt-5">
-                        <button type="button" class="btn btn-primary w-100" @click="submitConfig">Desar canvis</button>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-globe"></i></span>
+                            <select class="form-select" id="language" v-model="language">
+                                <option value="ca">Català</option>
+                                <option value="es">Español</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mt-3">
-                        <button type="button" class="btn btn-secondary w-100" id="contactButton">Contacte amb nosaltres</button>
+
+                    <div class="d-grid gap-3 mt-5">
+                        <button type="button" class="btn btn-primary position-relative" 
+                            @click="submitConfig" 
+                            :disabled="isLoading">
+                            <span v-if="!isLoading && !isSaved">Desar canvis</span>
+                            <span v-if="isLoading" class="d-flex align-items-center justify-content-center">Desant...</span>
+                            <span v-if="!isLoading && isSaved" class="d-flex align-items-center justify-content-center">Desat correctament!</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="contactButton">
+                            Contacte amb nosaltres
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
     <!-- Footer -->
     <footer class="text-center py-3">
         <div class="container">
-            <small>&copy; 2025 ClaM. All rights reserved.</small>
+            <small>&copy; 2025 ClaM. Tots els drets reservats.</small>
         </div>
     </footer>
 

@@ -76,68 +76,116 @@ p, span, a, li {
 
 .config-card {
     background-color: #FFFFFF;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin: 1rem;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(16, 34, 40, 0.08);
+    margin: 0;
+    margin-bottom: 2rem;
+    max-width: 100%;
 }
 
-  .form-label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
+.form-label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #102228;
+}
 
-  .form-control {
-    border-radius: 4px;
-    border: 1px solid #C8CDD0;
-    padding: 0.5rem;
-    color: #75828A;
-  }
+.form-control {
+    border-radius: 8px;
+    border: 2px solid #EEF1ED;
+    padding: 0.75rem 1rem;
+    color: #102228;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
 
-  .form-control:focus {
-    border-color: #75828A;
-    box-shadow: none;
+.form-control:focus {
+    border-color: #4273C2;
+    box-shadow: 0 0 0 3px rgba(66, 115, 194, 0.1);
     outline: 0;
-  }
+}
 
-  .btn-primary {
-    background-color: #FFFFFF;
-    border-color: #082691;
+.form-control::placeholder {
+    color: #C8CDD0;
+}
+
+.form-select {
+    border-radius: 8px;
+    border: 2px solid #EEF1ED;
+    padding: 0.75rem 1rem;
+    color: #102228;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.form-select:focus {
+    border-color: #4273C2;
+    box-shadow: 0 0 0 3px rgba(66, 115, 194, 0.1);
+    outline: 0;
+}
+
+.btn-primary {
+    background-color: white;
+    border: 1px solid #082691;
     color: #082691;
     padding: 0.5rem 1rem;
-  }
+    transition: all 0.2s;
+}
 
-  .btn-primary:hover {
+.btn-primary:hover {
     background-color: #4273C2;
-    color: #FFFFFF;
-  }
+    color: white;
+    border: 1px solid #4273C2;
+}
+
+.btn-primary:disabled {
+    background-color: #EEF1ED;
+    border-color: #C8CDD0;
+    color: #75828A;
+}
 
 .btn-secondary {
-    background-color: #FFFFFF;
-    border-color: #C8CDD0;
+    background-color: white;
+    border: 1px solid #102228;
     color: #102228;
     padding: 0.5rem 1rem;
+    transition: all 0.2s;
 }
 
 .btn-secondary:hover {
-    color: #102228;
-    background-color: #F5F7FA;
+    background-color: #102228;
+    color: white;
+    border: 1px solid #102228;
 }
 
 /* Password toggle button */
 .password-toggle {
-    right: 10px;
-    top: 55%;
+    right: 12px;
+    top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
+    color: #75828A;
+    padding: 0.5rem;
+}
+
+.password-toggle:hover {
+    color: #102228;
+}
+
+.alert {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 /* validation error messages */
 .error-text {
     display: block;
-    margin-top: 0.25rem;
-    font-size: 0.875em;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #dc3545;
 }
 
 .container {
