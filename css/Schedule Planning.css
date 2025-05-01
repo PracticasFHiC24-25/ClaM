@@ -17,20 +17,20 @@ h1 {
     font-family: 'Quicksand', sans-serif;
     font-size: 34px;
     font-weight: bold;
-    text-transform: uppercase;
     color: #102228;
     line-height: 40px;
 }
 
 .btn {
-    border: 1px solid #102228;
-    color: #102228;
+    border: 1px solid #082691; 
+    color: #082691; 
     background-color: transparent;
 }
 
+
 .btn:hover {
-    background-color: #468FAF;
-    color: white;
+    background-color: #4273C2; 
+    color: white; 
 }
 
 /* Logo Header */

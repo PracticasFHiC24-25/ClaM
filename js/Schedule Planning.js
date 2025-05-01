@@ -9,7 +9,7 @@ new Vue({
             goals: [
                 { title:'Estudiar Matemàtiques', start:'2025-04-27T09:00:00', end:'2025-04-27T11:00:00' },
                 { title:'Lectura', start:'2025-04-28T10:00:00', end:'2025-04-28T11:00:00' },
-                { title:'Tocar la guitarra', start:'2025-04-31T14:00:00', end:'2025-04-31T16:00:00' }
+                { title:'Tocar la guitarra', start:'2025-04-30T14:00:00', end:'2025-04-30T16:00:00' }
             ]
         };
     },
@@ -23,11 +23,12 @@ new Vue({
             // Inicializa el calendario FullCalendar
             this.calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
                 initialView: 'timeGridWeek',
-                locale: 'cat', // Establece el idioma a español
+                locale: 'cat', // Establece el idioma a catalán
                 events: this.goals, // Carga los eventos de ejemplo
                 editable: true,       // Permite arrastrar y cambiar horarios visualmente
                 selectable: true,     // Permite selección visual
                 select: this.addManualBlock, // Método para agregar bloque manualmente
+                eventClick: this.deleteEvent, // Método para eliminar evento al hacer clic
                 height: 'auto',
     
 
@@ -85,6 +86,14 @@ new Vue({
           
             // Limpia selección
             this.calendar.unselect();
+        },
+
+        // Método para eliminar un evento al hacer clic en él
+        deleteEvent(info) {
+            // Pregunta al usuario si realmente quiere eliminar el evento
+            if (confirm("Vols eliminar aquest bloc horari?")) {
+                info.event.remove(); // Si acepta, elimina el evento
+            }
         },
 
 

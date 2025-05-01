@@ -4,10 +4,18 @@ new Vue({
     data(){
     return{
         goals:[],
+        pieces: [], // Lista de piezas 
         newGoal:{
             name:'',
             week:{ value:'', unit:'h' },
-            day :{ value:'', unit:'m' }
+            day :{ value:'', unit:'m' },
+            warmupDuration: 15, // Tiempo de calentamiento (en minutos)
+            piece: '' // Pieza a practicar
+        },
+
+        warmup: {
+            enabled: false,
+            minPerSession: 15  // Valor inicial de 15 minutos, ajustable por el usuario
         }
     };
     },
@@ -19,10 +27,13 @@ new Vue({
         // Intenta recuperar desde el navegador una lista guardada anteriormente bajo la clave 'misObjetivos'.
 
         if (datos) {
-            this.goals = JSON.parse(datos);
-            // Si encuentra datos, los convierte de texto (JSON) a objeto de JavaScript y los guarda en la lista reactiva 'goals'.
+            // Si encuentra datos, los convierte de texto (JSON) a objeto de JavaScript y los guarda en la lista reactiva 'goals' y 'pieces'.
+            const storedData = JSON.parse(datos);
+            this.goals = storedData.goals || [];
+            this.pieces = storedData.pieces || [];
+    
         }
-        // Si no hay nada guardado, simplemente 'goals' seguirá vacío ([]).
+        // Si no hay nada guardado, simplemente 'goals' y 'pieces' seguirá vacío ([]).
     },
 
 
@@ -43,7 +54,9 @@ new Vue({
             this.newGoal={
                 name:'',
                 week:{ value:'', unit:'h' },
-                day :{ value:'', unit:'m' }
+                day :{ value:'', unit:'m' },
+                warmupDuration: 15,
+                piece: ''
             };
         },
 
@@ -61,11 +74,21 @@ new Vue({
                 return;
             } 
 
-            // Hacemos una copia real del objeto 'newGoal' para evitar que se modifique después al resetear el formulario.
-            const copia = JSON.parse(JSON.stringify(this.newGoal));
+            if (this.newGoal.warmupDuration < 15){
+                alert("⚠️ El temps de calentament ha de ser com a mínim 15 minuts.");
+                return;
+            }
 
-            // Añadimos la copia del nuevo objetivo a la lista principal 'goals', que luego Vue mostrará en la tabla.
+            // Si el calentamiento está activado, lo asociamos al objetivo
+            const copia = JSON.parse(JSON.stringify(this.newGoal));
+            copia.piece = this.newGoal.piece; // Guardamos la pieza que está practicando
+            copia.warmupDuration = this.newGoal.warmupDuration; // Guardamos la duración del calentamiento
+
+            // Añadimos el nuevo objetivo a la lista de objetivos
             this.goals.push(copia);
+
+            // Añadir la pieza a la lista de piezas
+            this.pieces.push(copia.piece);  
 
 
             // Limpiamos el formulario para que el usuario pueda escribir un nuevo objetivo sin borrar manualmente.
@@ -75,13 +98,25 @@ new Vue({
         // Elimina objetivo visual
         removeGoal(i){ 
             // splice(posición, nº elementos) quita 1 elemento en la posición i
+            // Elimina el objetivo de la lista de objetivos (goals).
             this.goals.splice(i,1); 
         },
 
+        removePiece(i){
+            // splice(posición, nº elementos) quita 1 elemento en la posición i
+            // Elimina la pieza de la lista de piezas (pieces).
+            this.pieces.splice(i,1); 
+        },
+
         saveAll(){
+            // Guardamos tanto los objetivos como las piezas de violín en localStorage
+            const dataToStore = {
+                goals: this.goals,
+                pieces: this.pieces
+            };
+
             // Se llama cuando pulsas el botón "Desar tots" para guardar la lista de objetivos en el navegador.
-            localStorage.setItem('misObjetivos', JSON.stringify(this.goals));
-            // Convierte el array de objetivos ('goals') en un texto JSON.
+            localStorage.setItem('misObjetivos', JSON.stringify(dataToStore));
             // Guarda ese texto en el navegador usando 'localStorage' bajo la clave 'misObjetivos'.
             // Así, aunque recargues la página o cierres el navegador, los objetivos seguirán ahí.
 
