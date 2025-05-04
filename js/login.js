@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Reset the form after successful signup
                         this.resetSignupForm();
                         // redirect to login page
-                        window.location.href = '/pages/index.html';
+                        window.location.href = '/index.html';
                     } else {
                         console.log('Signup form is invalid.');
                         // Ensure terms error is shown if it's the only thing missing
