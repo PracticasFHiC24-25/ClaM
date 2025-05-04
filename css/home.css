@@ -35,7 +35,7 @@ h3 {
     line-height: 24px;
 }
   
-p, span, a, li {
+p, span, a, li, small {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 22px;
@@ -81,7 +81,7 @@ p, span, a, li {
 }
 
 .subtitle {
-    color: #468FAF;
+    color: #102228;
 }
 
 /* Card and button styles */
@@ -96,8 +96,9 @@ p, span, a, li {
 }
 
 .badge {
-    color: #FFFFFF;
-    background-color: #72C5FF;
+    color: #102228;
+    opacity: 0.8;
+    background-color: #FFD966;
     border-radius: 0.375rem;
     padding: 0.5rem 1rem;
 }
@@ -151,8 +152,9 @@ p, span, a, li {
     color: #102228;
 }
 
-.text-muted {
-    color: #75828A !important;
+.info {
+    color: #102228;
+    opacity: 0.8;
 }
 
 .container {

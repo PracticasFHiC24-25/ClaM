@@ -66,48 +66,45 @@
                     <!-- SIGNUP FORM -->
                     <div v-if="formType === 'signup'">
                         <h2 class="form-title">Crea un compte</h2>
-                        <p class="mb-4">Ja tens un compte? <a href="#" @click.prevent="switchForm('login')" class="text-primary text-decoration-none">Inicia sessió</a></p>
-                        
+                        <p class="mb-4">Ja tens un compte? <a href="#" @click.prevent="switchForm('login')" class="text-primary text-decoration-none">Inicia sessió</a></p> 
                         <form @submit.prevent="submitSignup" novalidate>
                             <div class="row mt-5 mb-3">
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="firstName" placeholder="Nom" 
+                                    <div class="mb-3">
+                                        <label for="firstName" class="form-label">Nom</label>
+                                        <input type="text" class="form-control" id="firstName" 
                                                v-model.trim="signupData.firstName" 
                                                @blur="validateField('firstName')" 
                                                :class="{ 'is-invalid': errors.firstName }">
-                                        <label for="firstName">Nom</label>
                                         <div class="invalid-feedback">{{ errors.firstName }}</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="lastName" placeholder="Cognoms" 
+                                    <div class="mb-3">
+                                        <label for="lastName" class="form-label">Cognoms</label>
+                                        <input type="text" class="form-control" id="lastName" 
                                                v-model.trim="signupData.lastName" 
                                                @blur="validateField('lastName')" 
                                                :class="{ 'is-invalid': errors.lastName }">
-                                        <label for="lastName">Cognoms</label>
                                         <div class="invalid-feedback">{{ errors.lastName }}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control" id="signupEmail" placeholder="Correu electrònic" 
-                                           v-model.trim="signupData.email" 
-                                           @blur="validateField('email')" 
-                                           :class="{ 'is-invalid': errors.email }">
-                                    <label for="signupEmail">Correu electrònic</label>
-                                    <div class="invalid-feedback">{{ errors.email }}</div>
-                                </div>
+                                <label for="signupEmail" class="form-label">Correu electrònic</label>
+                                <input type="email" class="form-control" id="signupEmail" 
+                                       v-model.trim="signupData.email" 
+                                       @blur="validateField('email')" 
+                                       :class="{ 'is-invalid': errors.email }">
+                                <div class="invalid-feedback">{{ errors.email }}</div>
                             </div>
                             <div class="mb-3">
-                                <div class="form-floating position-relative">
-                                    <input :type="showPassword ? 'text' : 'password'" class="form-control" id="signupPassword" placeholder="Contrasenya" 
+                                <label for="signupPassword" class="form-label">Contrasenya</label>
+                                <div class="position-relative">
+                                    <input :type="showPassword ? 'text' : 'password'" class="form-control" id="signupPassword" 
                                            v-model="signupData.password" 
                                            @blur="validateField('password')" 
                                            :class="{ 'is-invalid': errors.password }">
-                                    <label for="signupPassword">Contrasenya</label>
                                     <button v-if="!errors.password" type="button" class="btn password-toggle position-absolute" @click="togglePassword">
                                         <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
                                     </button>
@@ -152,22 +149,20 @@
                         
                         <form @submit.prevent="submitLogin" novalidate>
                             <div class="mb-3 mt-5">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="loginEmail" placeholder="Correu electrònic" 
-                                           v-model.trim="loginData.email" 
-                                           @blur="validateLoginField('email')" 
-                                           :class="{ 'is-invalid': errors.loginEmail }">
-                                    <label for="loginEmail">Correu electrònic</label>
-                                    <div class="invalid-feedback">{{ errors.loginEmail }}</div>
-                                </div>
+                                <label for="loginEmail" class="form-label">Correu electrònic</label>
+                                <input type="text" class="form-control" id="loginEmail" 
+                                       v-model.trim="loginData.email" 
+                                       @blur="validateLoginField('email')" 
+                                       :class="{ 'is-invalid': errors.loginEmail }">
+                                <div class="invalid-feedback">{{ errors.loginEmail }}</div>
                             </div>
                             <div class="mb-3">
-                                <div class="form-floating position-relative">
-                                    <input :type="showPassword ? 'text' : 'password'" class="form-control" id="loginPassword" placeholder="Contrasenya" 
+                                <label for="loginPassword" class="form-label">Contrasenya</label>
+                                <div class="position-relative">
+                                    <input :type="showPassword ? 'text' : 'password'" class="form-control" id="loginPassword" 
                                            v-model="loginData.password" 
                                            @blur="validateLoginField('password')" 
                                            :class="{ 'is-invalid': errors.loginPassword }">
-                                    <label for="loginPassword">Contrasenya</label>
                                     <button v-if="!errors.loginPassword" type="button" class="btn password-toggle position-absolute" @click="togglePassword">
                                         <i :class="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
                                     </button>

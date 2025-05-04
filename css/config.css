@@ -147,15 +147,15 @@ p, span, a, li {
 
 .btn-secondary {
     background-color: white;
-    border: 1px solid #102228;
+    border: 1px solid #C8CDD0;
     color: #102228;
     padding: 0.5rem 1rem;
     transition: all 0.2s;
 }
 
 .btn-secondary:hover {
-    background-color: #102228;
-    color: white;
+    color: #102228;
+    background-color: #F5F7FA;
     border: 1px solid #102228;
 }
 
