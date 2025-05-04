@@ -37,20 +37,33 @@ new Vue({
             y: {
               beginAtZero: true,
               ticks: {
+                color: '#333',
                 callback: function(value) {
                   return value + ' min';
                 }
+              }
+            },
+            x: {
+              ticks: {
+                color: '#333'
               }
             }
           },
           plugins: {
             legend: {
-              display: false
+              display: false,
+              labels: {
+                color: '#333'
+              }
+            },
+            tooltip: {
+              bodyColor: '#333',
+              titleColor: '#111'
             }
           }
         }
       });
-    }
+    }    
   }
 });
 

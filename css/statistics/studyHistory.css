@@ -91,7 +91,7 @@ html, body {
 
   .total-time {
     font-size: 0.9em;
-    color: #666;
+    color: #161616;
   }
 
   .bar-container {
@@ -169,7 +169,7 @@ html, body {
   .label-text {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #666;
+    color: #161616;
   }
 
   /* Footer */
