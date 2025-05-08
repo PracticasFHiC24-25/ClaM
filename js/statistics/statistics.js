@@ -57,6 +57,7 @@ new Vue({
               }
             },
             tooltip: {
+              backgroundColor: '#fff',
               bodyColor: '#333',
               titleColor: '#111'
             }
@@ -91,25 +92,19 @@ function getStudyMinutes7Days() {
 // Function to get the last 2 study sessions data
 function getLast2StudySessions() {
   return [{
-      label: 'Avui',
-      study: '60%',
-      studyLeft: '40%',
-      warmup: '85%',
-      warmupLeft: '15%',
-      rest: '70%',
-      restLeft: '30%',
-      total: '00h 41m'
-    },
-    {
-      label: 'Ahir',
-      study: '72%',
-      studyLeft: '28%',
-      warmup: '90%',
-      warmupLeft: '10%',
-      rest: '70%',
-      restLeft: '30%',
-      total: '00h 50m'
-    }]
+        label: '19 de Març, 2025',
+        study: '75%',
+        warmup: '5%',
+        rest: '20%',
+        total: '01h 45m'
+      },
+      {
+        label: '17 de Març, 2025',
+        study: '80%',
+        warmup: '6%',
+        rest: '14%',
+        total: '00h 28m'
+      }]
 }
 
 // Function to get the weekly progress data (responsive with the current day)

@@ -21,6 +21,13 @@ h1 {
     line-height: 40px;
 }
 
+p, span, a, li {
+    font-family: 'Inter', sans-serif;
+    font-weight: light;
+    font-size: 16px;
+    line-height: 22px;
+}
+
 .btn {
     border: 1px solid #082691; 
     color: #082691; 
@@ -31,6 +38,25 @@ h1 {
 .btn:hover {
     background-color: #4273C2; 
     color: white; 
+}
+
+#calendar .fc-button {
+    border: 1px solid #082691 !important;
+    color: #082691 !important;
+    background-color: transparent !important;
+    transition: background-color 0.3s;
+    font-weight: normal !important;
+}
+
+#calendar .fc-button:hover {
+    background-color: #4273C2 !important;
+    color: white !important;
+}
+
+#calendar .fc-button:disabled {
+    background-color: #EEF1ED !important;
+    border-color: #C8CDD0 !important;
+    color: #75828A !important;
 }
 
 /* Logo Header */
@@ -46,26 +72,46 @@ h1 {
     color: #102228;
 }
 
+.fc .fc-button {
+    background-color: #4273C2 !important;
+    border-color: #4273C2 !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+.fc .fc-button:hover,
+.fc .fc-button:focus {
+    background-color: #4273C2 !important;
+    border-color: #4273C2 !important;
+    color: #D1DFFF !important;
+}
+
+.navbar-toggler {
+    background: white;
+}  
 
 /* Navbar */
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
     background-color: #102228;
-  }
+}
   
 .navbar-brand,
 .navbar-nav .nav-link {
-    color: #FFFFFF !important;
-    font-family: Quicksand, sans-serif;
+  color: #FFFFFF !important;
+  font-family: Quicksand, sans-serif;
 }
 
 .navbar-nav .nav-link.active {
-    color: #D1DFFF !important;
-    font-weight: bold;
-    font-style: italic;
+  color: #D1DFFF !important;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #D1DFFF !important;
+  color: #D1DFFF !important;
 }
 
 

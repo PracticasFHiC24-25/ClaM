@@ -100,8 +100,8 @@
 
                 <!-- Campo para el nombre de la pieza a practicar -->
                 <div class="col-md-4">
-                    <label class="form-label">Pieza a practicar</label>
-                    <input class="form-control" v-model.trim="newGoal.piece" placeholder="Nombre de la pieza" required>
+                    <label class="form-label">Peça a practicar</label>
+                    <input class="form-control" v-model.trim="newGoal.piece" placeholder="Nom de la peça" required>
                 </div>
 
                 <!-- Campo para el tiempo de escalfament -->
@@ -121,7 +121,7 @@
             <table v-if="goals.length" class="table table-bordered align-middle">
                 <thead class="table-light">
                     <tr>
-                        <th>Nom</th><th>Setmanal</th><th>Diari</th><th>Escalfament</th><th>Pieza</th><th style="width:60px"></th>
+                        <th>Nom</th><th>Setmanal</th><th>Diari</th><th>Escalfament</th><th>Peça</th><th style="width:60px"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -141,8 +141,7 @@
             <p v-else class="text-muted">Encara no hi ha objectius.</p>
             
             <!-- Botones finales -->
-            <div class="text-end mt-4">
-                <a href="Plannings.html" class="btn btn-secondary me-2">Tornar</a>
+            <div class="d-flex justify-content-start mb-3">
                 <button class="btn btn-primary" v-on:click="saveAll">Desar tots</button>
             </div>
         </div>
@@ -153,7 +152,7 @@
     <!-- Footer -->
     <footer class="text-center py-3">
         <div class="container">
-        <small>&copy; 2025 ClaM. All rights reserved.</small>
+        <small>&copy; 2025 ClaM. Tots els drets reservats.</small>
         </div>
     </footer>
 

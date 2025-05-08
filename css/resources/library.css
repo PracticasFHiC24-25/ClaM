@@ -31,7 +31,6 @@ html, body {
     font-family: 'Quicksand', sans-serif;
     font-size: 28px;
     font-weight: bold;
-    text-transform: uppercase;
     color: #102228;
   }
   
@@ -56,7 +55,14 @@ html, body {
   
   /* Navbar */
   .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* Ensure it stays above other content */
     background-color: #102228;
+  }
+
+  .navbar-toggler {
+    background: white;
   }
   
   .navbar-brand,
@@ -93,16 +99,29 @@ html, body {
   }
 
   .search-sheets-bar {
+    height: 40px;
     flex: 1;
   }
   
   .button {
-    background-color: #72C6FF;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
+    background-color: white;
+    border: 1px solid #082691;
+    color: #082691;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s;
+    border-radius: 8px;
+  }
+
+  .button:hover {
+    background-color: #4273C2;
+    color: white;
+    border: 1px solid #4273C2;
+  }
+
+  .button:disabled {
+    background-color: #EEF1ED;
+    border-color: #C8CDD0;
+    color: #75828A;
   }
 
   .filter-search {
@@ -110,6 +129,64 @@ html, body {
     gap: 50px;
     justify-content: center;
     align-items: center;
+  }
+
+   /* Ajustes para pantallas pequeñas */
+   @media (max-width: 768px) {
+    .search-sheets {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .search-bar {
+      display: flex;
+      flex-direction: column; /* Cambia a diseño vertical */
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+  
+    .search-sheets-bar {
+      width: 100%;
+      height: 40px;
+      flex: 1;
+    }
+
+    .filter-search {
+        flex-direction: column; /* Cambia a diseño vertical */
+        align-items: center; /* Centra los elementos */
+        gap: 5px; /* Espaciado entre los elementos */
+    }
+
+    .selection-container {
+        width: 100%; /* Asegura que los botones ocupen todo el ancho */
+        text-align: center; /* Centra el texto */
+    }
+
+    .selection-button {
+        width: 100%; /* Botones ocupan todo el ancho */
+        padding: 10px; /* Espaciado interno */
+        font-size: 16px; /* Ajusta el tamaño del texto */
+    }
+
+    /* Centrar texto en los botones */
+    .button, .selection-button {
+      display: flex; /* Convierte el botón en un contenedor flexbox */
+      justify-content: center; /* Centra el texto horizontalmente */
+      align-items: center; /* Centra el texto verticalmente */
+      text-align: center; /* Asegura que el texto esté centrado */
+      font-size: 16px; /* Ajusta el tamaño del texto */
+      height: 30px; /* Ajusta la altura del botón */
+      width: 100%; /* Ajusta el ancho automáticamente */
+    }
+
+    .pdf-container p {
+      font-size: 12px;
+    }
   }
 
   .selection-container {
@@ -129,11 +206,11 @@ html, body {
   }
 
   #study-button.selected {
-    background: radial-gradient(circle, #72C6FF 60%, white 50%);
+    background: radial-gradient(circle, #4273C2 60%, white 50%);
   }
 
   #warm-up-button.selected {
-    background: radial-gradient(circle, #72C6FF 60%, white 50%);
+    background: radial-gradient(circle, #4273C2 60%, white 50%);
   }
 
   .selection-container p {
@@ -167,9 +244,27 @@ html, body {
     background-color: #f9f9f9;
   }
 
+  .pdf-container:hover {
+    background-color: #EEF1ED;
+  }
+
   .pdf-container p {
     margin-top: 7px;
     margin-bottom: 7px;
+  }
+
+  /* Título del PDF */
+  .pdf-container p:first-child {
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* Autor del PDF */
+  .pdf-container p:last-child {
+    margin-top: auto; /* Empuja el autor hacia la parte inferior */
+    text-align: center;
+    font-weight: bold;
   }
 
   .pdf-container canvas {

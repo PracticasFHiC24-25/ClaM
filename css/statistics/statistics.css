@@ -102,9 +102,15 @@ p, span, a, li {
   max-width: 80%;
   margin: 0 auto;
   height: 12px;
-  overflow: hidden;
 }
 
+.info-container {
+  display: flex;
+  max-width: 80%;
+  margin: 0 auto;
+  height: 30px;
+  margin-bottom: 35px;
+}
 
 .study {
   background: #0ea964;
@@ -193,6 +199,7 @@ p, span, a, li {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #161616;
+  text-align: center;
 }
 
 .info-block-labels {
@@ -227,6 +234,20 @@ p, span, a, li {
 @media (max-width: 768px) {
   .weekly-progress-day {
     width: 37px;
+  }
+}
+
+@media (max-width: 768px) {
+  .label-text {
+    width: 33.333% !important;
+  }
+
+  .text-warmup {
+    text-align: left;
+  }
+
+  .text-rest {
+    text-align: right;
   }
 }
 

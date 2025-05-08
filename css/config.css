@@ -56,6 +56,10 @@ p, span, a, li {
 /* Navbar */
 .navbar {
     background-color: #102228;
+    /* Navbar */
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* Ensure it stays above other content */
 }
   
 .navbar-brand,
@@ -72,6 +76,10 @@ p, span, a, li {
   
 .navbar-nav .nav-link:hover {
     color: #D1DFFF !important;
+}
+
+.navbar-toggler {
+    background: white;
 }
 
 .config-card {

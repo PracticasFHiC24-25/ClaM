@@ -61,49 +61,65 @@
             <span class="total-time">({{ day.total }})</span>
             </div>
             <!-- Bars with the time dedicated to each practice aspect (stdudy, warmup, rest) -->
-            <div class="bar-container">
-            <div class="bar study" :style="{ width: day.study }"></div>
-            <div class="bar study-left" :style="{ width: day.studyLeft }"></div>
-            <div :style="{ width: '10%' }"></div>
-            <div class="bar warmup" :style="{ width: day.warmup }"></div>
-            <div class="bar warmup-left" :style="{ width: day.warmupLeft }"></div>
-            <div :style="{ width: '10%' }"></div>
-            <div class="bar rest" :style="{ width: day.rest }"></div>
-            <div class="bar rest-left" :style="{ width: day.restLeft }"></div>
-            </div>
+            <div class="bar-container mb-3">
+              <div class="bar warmup" :style="{ width: day.warmup }"></div>
+              <div :style="{ width: '5px' }"></div>
+              <div class="bar study" :style="{ width: day.study }"></div>
+              <div :style="{ width: '5px' }"></div>
+              <div class="bar rest" :style="{ width: day.rest }"></div>
+              </div>
             <!-- Information block with the labels for each practice aspect (stdudy, warmup, rest) -->
-            <div class="info-block-labels mb-2">
-            <span class="label-text">Study</span>
-            <span class="label-text">Warmup</span>
-            <span class="label-text">Rest</span>
+            <div class="info-container">
+              <div class="bar label-text text-warmup" :style="{ width: day.warmup }"> Escalfament <br> {{day.warmup}}</div>
+              <div class="bar label-text" :style="{ width: day.study }"> Estudi <br> {{day.study}}</div>
+              <div class="bar label-text text-rest" :style="{ width: day.rest }">Descans <br> {{day.rest}} </div>
             </div>
             <hr class="mb-4" style="width: 80%; margin-left: 10%;">
         </div>
-        <!-- Previous Study Sessions -->
-        <h2 class="mb-4" style="margin-left: 10%;">Sessions d'estudi prèvies</h2>
-        <hr class="mb-4" style="width: 80%; margin-left: 10%;">
         <div v-for="day in previousSessions" class="day-block">
+          <!-- Information block with day and amount of time dedicated-->
+          <div class="info-block mb-3">
+          <span class="day">{{ day.label }}</span>
+          <span class="total-time">({{ day.total }})</span>
+          </div>
+          <!-- Bars with the time dedicated to each practice aspect (stdudy, warmup, rest) -->
+          <div class="bar-container mb-3">
+          <div class="bar warmup" :style="{ width: day.warmup }"></div>
+          <div :style="{ width: '5px' }"></div>
+          <div class="bar study" :style="{ width: day.study }"></div>
+          <div :style="{ width: '5px' }"></div>
+          <div class="bar rest" :style="{ width: day.rest }"></div>
+          </div>
+          <!-- Information block with the labels for each practice aspect (stdudy, warmup, rest) -->
+          <div class="info-container">
+            <div class="bar label-text text-warmup" :style="{ width: day.warmup }"> Escalfament <br> {{day.warmup}}</div>
+            <div class="bar label-text" :style="{ width: day.study }"> Estudi <br> {{day.study}}</div>
+            <div class="bar label-text text-rest" :style="{ width: day.rest }">Descans <br> {{day.rest}} </div>
+          </div>
+          <hr class="mb-4" style="width: 80%; margin-left: 10%;">
+        </div>
+        <!-- Session means from previous months -->
+        <h2 class="mb-4" style="margin-left: 10%;">Mitjanes de mesos anteriors</h2>
+        <hr class="mb-4" style="width: 80%; margin-left: 10%;">
+        <div v-for="day in previousMonthsMean" class="day-block">
             <!-- Information block with day and amount of time dedicated-->
-            <div class="info-block mb-2">
+            <div class="info-block mb-3">
             <span class="day">{{ day.label }}</span>
-            <span class="total-time">({{ day.total }})</span>
             </div>
             <!-- Bars with the time dedicated to each practice aspect (stdudy, warmup, rest) -->
-            <div class="bar-container">
-            <div class="bar study" :style="{ width: day.study }"></div>
-            <div class="bar study-left" :style="{ width: day.studyLeft }"></div>
-            <div :style="{ width: '10%' }"></div>
+            <div class="bar-container mb-3">
             <div class="bar warmup" :style="{ width: day.warmup }"></div>
-            <div class="bar warmup-left" :style="{ width: day.warmupLeft }"></div>
-            <div :style="{ width: '10%' }"></div>
+            <div :style="{ width: '5px' }"></div>
+            <div class="bar study" :style="{ width: day.study }"></div>
+            <div :style="{ width: '5px' }"></div>
             <div class="bar rest" :style="{ width: day.rest }"></div>
-            <div class="bar rest-left" :style="{ width: day.restLeft }"></div>
             </div>
+
             <!-- Information block with the labels for each practice aspect (stdudy, warmup, rest) -->
-            <div class="info-block-labels mb-2">
-            <span class="label-text">Estudi</span>
-            <span class="label-text">Escalfament</span>
-            <span class="label-text">Descans</span>
+            <div class="info-container">
+              <div class="bar label-text text-warmup" :style="{ width: day.warmup }"> Escalfament <br> {{day.warmup}}</div>
+              <div class="bar label-text" :style="{ width: day.study }"> Estudi <br> {{day.study}}</div>
+              <div class="bar label-text text-rest" :style="{ width: day.rest }">Descans <br> {{day.rest}} </div>
             </div>
             <hr class="mb-4" style="width: 80%; margin-left: 10%;">
         </div>
@@ -112,7 +128,7 @@
   <!-- Footer -->
   <footer class="text-center py-3">
     <div class="container">
-      <small>&copy; 2025 ClaM. All rights reserved.</small>
+      <small>&copy; 2025 ClaM. Tots els drets reservats.</small>
     </div>
   </footer>
 

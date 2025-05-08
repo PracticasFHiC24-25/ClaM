@@ -35,7 +35,7 @@ h3 {
     line-height: 24px;
 }
   
-p, span, a, li, small {
+p, span, a, li {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 22px;
@@ -57,6 +57,9 @@ p, span, a, li, small {
 /* Navbar */
 .navbar {
     background-color: #102228;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
 }
   
 .navbar-brand,
@@ -73,6 +76,10 @@ p, span, a, li, small {
   
 .navbar-nav .nav-link:hover {
     color: #D1DFFF !important;
+}
+
+.navbar-toggler {
+    background: white;
 }
 
 .welcome-title {
@@ -110,7 +117,7 @@ p, span, a, li, small {
 }
 
 .stat-box p.h4 {
-    color: #468FAF;
+    color: black;
     font-weight: 700;
 }
 
@@ -153,6 +160,9 @@ p, span, a, li, small {
 }
 
 .info {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
     color: #102228;
     opacity: 0.8;
 }

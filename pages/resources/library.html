@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
   <meta charset="UTF-8">
   <title>ClaM</title>
@@ -33,7 +33,6 @@
 <body>
 
   <!-- Header / Navbar -->
-  <!-- Header / Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="/pages/home.html">
@@ -62,26 +61,26 @@
     <div id="app">
           <!-- Title -->
           <div class="search-sheets-title">
-            <h1 class="text-center mb-4">Library</h1>
+            <h1 class="text-center mb-4">Biblioteca</h1>
           </div>
           <!-- Search -->
           <div class="search-sheets">
               <div class="search-bar">
-                <input type="text" @input="search()" class="search-sheets-bar" id="search-bar" placeholder="Search">
-                <button @click="search()" class="button">Search</button>
-                <button onclick="window.location.href='addSheet.html';" class="button">Add Sheet</button>
+                <input type="text" @input="search()" class="search-sheets-bar" id="search-bar" placeholder="Cerca">
+                <button @click="search()" class="button">Cerca</button>
+                <button onclick="window.location.href='addSheet.html';" class="button">Afegir Partitura</button>
               </div>  
             <div class="filter-search">
                 <div class="selection-container">
                   <button @click="selected('study')" class="selection-button" id="study-button"></button>
-                  <p>Study</p>
+                  <p>Estudi</p>
                 </div>
                 <div class="selection-container">
                   <button @click="selected('warmUp')" class="selection-button" id="warm-up-button"></button>
-                  <p>Warm-up</p>
+                  <p>Escalfament</p>
                 </div>
                 <div class="selection-container">
-                  <button @click="selected('')" class="button" id="deselect-button">Deselect</button>
+                  <button @click="selected('')" class="button" id="deselect-button">Desseleccionar</button>
                 </div>
             </div>
             </div>
@@ -95,7 +94,7 @@
   <!-- Footer -->
   <footer class="text-center py-3">
     <div class="container">
-      <small>&copy; 2025 ClaM. All rights reserved.</small>
+      <small>&copy; 2025 ClaM. Tots els drets reservats.</small>
     </div>
   </footer>
 

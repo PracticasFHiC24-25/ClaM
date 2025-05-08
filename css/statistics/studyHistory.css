@@ -1,17 +1,18 @@
 /* Layout */
 html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Inter', sans-serif;
-    background-color: #EEF1ED;
-    color: #102228;
-  }
-  
-  main {
-    flex: 1;
-  }
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #EEF1ED;
+  color: #102228;
+}
+
+body {
+  min-height: 100vh; /* Ensure the body is at least the height of the viewport */
+}
+
+main {
+  flex: 1;
+}
 
   /* Logo Header */
   .logo-img {
@@ -61,7 +62,7 @@ html, body {
   .navbar {
     position: sticky;
     top: 0;
-    z-index: 1020; /* Ensure it stays above other content */
+    z-index: 3050; /* Ensure it stays above other content */
     background-color: #102228; /* Keep the background consistent */
   }
   
@@ -94,23 +95,8 @@ html, body {
     color: #161616;
   }
 
-  .bar-container {
-    display: flex;
-    max-width: 80%;
-    margin: 0 auto;
-    height: 12px;
-    overflow: hidden;
-  }
-
   .study {
     background: #0ea964;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #00b463;
-  }
-  
-  .study-left {
-    background: #a2eac4;
     border-width: 1px;
     border-style: solid;
     border-color: #00b463;
@@ -122,28 +108,13 @@ html, body {
     border-style: solid;
     border-color: #0249d8;
   }
-  
-  .warmup-left {
-    background: #bbd9ff;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #0249d8;
-  }
-  
+
   .rest {
     background: #ff5100;
     border-width: 1px;
     border-style: solid;
     border-color: #af3700;
   }
-  
-  .rest-left {
-    background: #ffd9b0;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #af3700;
-  }
-  
 
   .bar {
     height: 100%;
@@ -154,7 +125,14 @@ html, body {
     max-width: 80%;
     margin: 0 auto;
     height: 12px;
-    overflow: hidden;
+  }
+
+  .info-container {
+    display: flex;
+    max-width: 80%;
+    margin: 0 auto;
+    height: 30px;
+    margin-bottom: 35px;
   }
   
   .info-block-labels {
@@ -170,6 +148,21 @@ html, body {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #161616;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .label-text {
+      width: 33.333% !important;
+    }
+
+    .text-warmup {
+      text-align: left;
+    }
+
+    .text-rest {
+      text-align: right;
+    }
   }
 
   /* Footer */

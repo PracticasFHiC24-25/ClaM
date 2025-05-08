@@ -6,14 +6,16 @@ new Vue({
         // The type can be 'warmUp' or 'study' and if it is both will be empty ''
         // The src will be the path to the pdf file, it can be from internet or local
         pdfList: [
-            ['bo','bo','bo','warmUp','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','warmUp','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','warmUp','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','warmUp','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','warmUp','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','study','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','study','library/Brouwer, L. - Decamerón Negro.pdf'],
-            ['bo','bo','bo','study','library/Brouwer, L. - Decamerón Negro.pdf']
+            ['Asturias', 'Isaac Albéniz', 'Piano', 'study', 'library/Albéniz - Asturias (pianoforte).pdf'],
+            ['Decamerón Negro', 'Leo Brouwer', 'Guitarra', 'warmUp', 'library/Brouwer, L. - Decamerón Negro.pdf'],
+            ['Capriccio Diabolico', 'Mario Castelnuovo-Tedesco', 'Guitarra', '', 'library/Capriccio Diabolico - Mario Castelnuovo-Tedesco.pdf'],
+            ['Capriccio Nº 24', 'Niccolò Paganini', 'Violí', 'study', 'library/Capriccio Nº 24 - Niccolò Paganini.pdf'],
+            ['Clair de lune', 'Claude Debussy', 'Piano', 'warmUp', 'library/Claude Debussy - Clair de lune.pdf'],
+            ['Nocturne op.9 No.2', 'Frédéric Chopin', 'Piano', '', 'library/Frédéric Chopin - Nocturne op.9 No.2.pdf'],
+            ['Kanon', 'Johann Pachelbel', 'Orgue', 'study', 'library/Johann Pachelbel - Kanon.pdf'],
+            ['La Campanella', 'Franz Liszt', 'Piano', '', 'library/La Campanella - Franz Liszt.pdf'],
+            ['Vol del Borinot', 'Nikolái Rimski-Kórsakov', 'Violí', 'warmUp', 'library/Nikolái Rimski-Kórsakov - Flight of the Bumblebee.pdf'],
+            ['The Entertainer', 'Scott Joplin', 'Piano', 'study', 'library/Scott Joplin - The Entertainer.pdf']
         ]
     },
     methods: {
@@ -96,7 +98,7 @@ new Vue({
 
                 // Add an onclick event to the container
                 pdfContainer.onclick = () => {
-                    window.open(pdf[4], '_blank'); // Open the pdf
+                    window.open(pdf[4], '_self'); // Open the pdf
                 };
         
                 const title = document.createElement('p');

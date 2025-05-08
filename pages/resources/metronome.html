@@ -14,9 +14,6 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="../../css/resources/metronome.css">
 
-  <!-- Script for the chart display -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -56,18 +53,18 @@
 
       <!-- Title -->
       <div class="title">
-        <h1 class="text-center mb-4">Metronome</h1>
+        <h1 class="text-center mb-4">Metrònom</h1>
       </div>
         
       <div class = "metronome-box">
         <div class="metronome-info">
           <p id="bpm-num">{{ bpm }}</p> <p id="bpm-text">BPM</p>
 
-          <img class="start-pause" id="bttn_pause" :src="bttnStartStop" @click = "changeMetronome()">
+          <img class="start-pause" id="bttn_pause" alt="Iniciar o parar" :src="bttnStartStop" @click = "changeMetronome()">
         </div>
 
         <div class="metronome-tempo">
-          <img class="bttn-bpm-change" id="bttn-less" src="/images/bttn_less.png" @click="decreaseBPM()">
+          <img class="bttn-bpm-change" id="bttn-less" alt="Decrementar el tempo" src="/images/bttn_less.png" @click="decreaseBPM()">
 
           <div class="metronome-slider">
             <input 
@@ -79,7 +76,7 @@
             </input>
           </div>
 
-          <img class="bttn-bpm-change" id="bttn-more" src="/images/bttn_more.png" @click="increaseBPM()">
+          <img class="bttn-bpm-change" id="bttn-more" alt="Incrementar el tempo" src="/images/bttn_more.png" @click="increaseBPM()">
         </div>
       </div>
 
@@ -89,7 +86,7 @@
   <!-- Footer -->
   <footer class="text-center py-3">
     <div class="container">
-      <small>&copy; 2025 ClaM. All rights reserved.</small>
+      <small>&copy; 2025 ClaM. Tots els drets reservats.</small>
     </div>
   </footer>
 

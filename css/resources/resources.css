@@ -1,12 +1,11 @@
 /* Layout */
 html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Inter', sans-serif;
-    background-color: #EEF1ED;
-    color: #102228;
+  font-family: 'Inter', sans-serif;
+  background-color: #EEF1ED;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   }
   
   main {
@@ -19,96 +18,96 @@ html, body {
     width: auto;
   }
   
-  .logo-text {
+.logo-text {
     font-family: 'Quicksand', sans-serif;
     font-size: 42px;
     font-weight: bold;
     color: #102228;
-  }
+}
   
   /* Typography */
-  h1 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #102228;
-  }
-  
-  h2 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    color: #102228;
-  }
-  
-  h3 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #102228;
-  }
-  
-  p, span, a, li {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-  }
-  
-  /* Navbar */
-  .navbar {
-    background-color: #102228;
-  }
-  
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: #FFFFFF !important;
-    font-family: Quicksand, sans-serif;
-  }
-  
-  .navbar-nav .nav-link.active {
-    color: #D1DFFF !important;
-    font-weight: bold;
-    font-style: italic;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #D1DFFF !important;
-  }
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #102228;
+  line-height: 40px;
+}
+
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 32px;
+  font-weight: 600px; /* semibold */
+  color: #102228;
+  line-height: 38px;
+}
+
+h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #102228;
+  line-height: 24px;
+}
+
+p, span, a, li, small {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
 
   /* Main Content */
-  .box-selection {
-    border-radius: 10px;
-    padding: 100px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    text-align: center;
+  .row{
+    margin-top: 5rem;
   }
 
-  .box-title {
-    display: inline-block;
-    background-color: #102228;
-    color: #FFFFFF;
-    padding: 10px;
-    border-radius: 10px;
+  /* Tarjeta‑botón reutilizable */
+  .option-card{
+      padding:2.5rem 1rem;
+      background:#fff;
+      border:2px solid #6c757d;
+      border-radius:.75rem;
+      text-decoration:none;           /* quita subrayado del <a> */
   }
 
-  #library-selection {
-    background: url('../../images/library.jpg');
-    background-size: cover;
-  }  
-
-  #metronome-selection {
-    background: url('../../images/metronome.jpg');
-    background-size: cover;
-  } 
-
-  #tuner-selection {
-    background: url('../../images/tuner.jpg');
-    background-size: cover;
-  } 
-
-  /* Footer */
-  footer {
-    background-color: #102228;
-    color: #FFFFFF;
+  .option-card:hover{
+      background:#e9ecef;
+      box-shadow:0 0 .5rem rgba(0,0,0,.15);
   }
+
+  .option-img{width:60px;height:60px;object-fit:contain}
+  .option-text{font-size:1.25rem;font-weight:600;color:#000}
+
+ /* Navbar */
+ .navbar {
+  position: sticky;
+  top: 0;
+  background-color: #102228;
+}
+
+.navbar-toggler {
+  background-color: #ffffff;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #FFFFFF !important;
+  font-family: Quicksand, sans-serif;
+}
+
+.navbar-nav .nav-link.active {
+  color: #D1DFFF !important;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #D1DFFF !important;
+}
+
+/* Footer */
+footer {
+  background-color: #102228;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}

@@ -21,12 +21,13 @@ h1 {
     line-height: 40px;
 }
 
-p {
+p, span, a, li {
     font-family: 'Inter', sans-serif;
     font-weight: light;
     font-size: 16px;
     line-height: 22px;
 }
+
 
 /* Logo Header */
 .logo-img {
@@ -41,26 +42,32 @@ p {
     color: #102228;
 }
 
+.navbar-toggler {
+    background: white;
+}  
 
 /* Navbar */
 .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
     background-color: #102228;
-  }
+}
   
 .navbar-brand,
 .navbar-nav .nav-link {
-    color: #FFFFFF !important;
-    font-family: Quicksand, sans-serif;
+  color: #FFFFFF !important;
+  font-family: Quicksand, sans-serif;
 }
 
 .navbar-nav .nav-link.active {
-    color: #D1DFFF !important;
-    font-weight: bold;
-    font-style: italic;
+  color: #D1DFFF !important;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #D1DFFF !important;
+  color: #D1DFFF !important;
 }
 
 

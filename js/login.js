@@ -223,12 +223,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Handle forgot password click
                 handleForgotPassword() {
-                    alert('No implementat funcionalitat de recuperar la contraseña');
+                    alert('No implementada la funcionalitat de recuperar la contrasenya');
                 },
                 
                 // Handle terms and conditions click
                 handleTermsAndConditions() {
-                    alert('La pàgina termes i condicions no está creada.');
+                    alert('La pàgina de termes i condicions no està creada.');
                 },
                 
                 // Clear all error messages
